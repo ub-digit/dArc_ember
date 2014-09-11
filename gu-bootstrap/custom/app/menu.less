@@ -1,0 +1,25 @@
+.nav {
+	&.navbar-nav {
+		li {
+			position: relative;
+			a {
+				.active-indicator {
+					visibility: hidden;
+					opacity: 0;
+					transition:visibility 0s linear 0.3s, opacity 0.3s linear;
+					position: absolute;
+					bottom: 10px;
+					left: 50%;
+					margin-left: -10px;
+				}
+				&.active {
+					.active-indicator {
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+			}	
+	
+		}
+	}
+}

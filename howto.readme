@@ -1,0 +1,21 @@
+1. clone repo github....com
+
+2. make sure to remove all .git references. Place yourself in project root where .git folder exist
+
+Commands:ls -a, rm -rf .git
+
+3. Requirements: 
+	node.js (http://nodejs.org/)
+	npm (https://www.npmjs.org/)
+	grunt (http://gruntjs.com/getting-started)
+
+4. when above is setup correctly:  
+	Change to the project's root directory.
+	Install project dependencies with: npm install. This will look in the file called package.json and install the dependencies listed there. 
+	
+
+5. If everything went ok you can now run grunt watch. This command will listen to changes in your templates files and css-files. The templates will end up in a file called templates.js the app-folder. The .less files will be compiled into one big CSS-file and it will be named after the name that is written in the package.js file. Go there to change this to your own project name (make sure you update the link to this CSS-file inte the index.html file after that).
+
+Commands: grunt watch (check out the Gruntfile.js for details)
+	
+

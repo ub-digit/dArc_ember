@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="page-head">
+		<div class="row v-align">
+			<div class="col-xs-3">
+				{{#link-to 'archives'}}<i class="fa fa-chevron-left"></i> <span class="back-title">List of Archives</span>{{/link-to}}
+			</div>
+			<div class="col-xs-9">
+				<h1>Archive (name of archive here)</h1>
+			</div>
+		</div> <!-- end row --> 
+	</div> <!-- end page-head --> 
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-striped">
+				<tr>
+					<th>id:</th>
+					<td>{{model.id}}</td>
+				</tr>
+				<tr>
+					<th>exampleBool:</th>
+					<td>{{model.exampleBool}}</td>
+				</tr>
+				<tr>
+					<th>exampleStr:</th>
+					<td>{{model.exampleStr}}</td>
+				</tr>
+				<tr>
+					<th>exampleNum:</th>
+					<td>{{model.exampleNum}}</td>
+				</tr>
+				<tr>
+					<th>exampleDate:</th>
+					<td>{{model.exampleDate}}</td>
+				</tr>
+			</table>
+		</div>
+	</div><!-- end row --> 
+</div> <!-- end container --> 

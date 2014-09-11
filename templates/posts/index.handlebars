@@ -1,0 +1,35 @@
+<div class="container-fluid">
+	<div class="page-head">
+		<div class="row v-align">
+			<div class="col-xs-12">
+				<h1>
+					Auktoriteter
+					{{#if isEditing}}
+						<small>(editerar)</small>
+					{{/if}}
+				</h1>
+			</div>
+		</div> <!-- end row --> 
+	</div> <!-- end page-head --> 
+	<div class="row">
+		<div class="col-xs-10">
+			<ul>
+				{{#each item in model}}
+					<li>
+					{{#if isEditing }}
+						{{input type="checkbox" name="markedForRemoval" checked=false}}
+					{{/if}}
+					{{#link-to 'posts.post' item.id}}id: {{item.id}}, exampleStr: {{item.exampleStr}}, exampleBool: {{item.exampleBool}}, exampleDate: {{item.exampleDate}}{{/link-to}}
+
+					</li>
+				{{/each}}
+			</ul>
+		</div> 
+		<div class="col-xs-2">
+			<button {{action createPost}} {{bind-attr class=":btn :btn-sm :btn-primary :btn-block"}}>{{translateString STRINGS.BUTTON.CREATE}}</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing::disabled"}} {{action toggleIsEditing}}>{{translateString STRINGS.BUTTON.CLOSE}}</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing:disabled"}} {{action toggleIsEditing}}>{{translateString STRINGS.BUTTON.EDIT}}</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-danger :btn-block isEditing::disabled"}}>{{translateString STRINGS.BUTTON.REMOVE}}</button>
+		</div>
+	</div>
+</div>

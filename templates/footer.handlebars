@@ -1,0 +1,19 @@
+<footer>
+	<div class="container-fluid">
+		<div id="footer" class="row">
+			<div class="col-sm-12">
+				{{translateString STRINGS.FOOTER.TAGLINE}}
+			</div>
+			<div class="col-sm-12">
+				<address><i class="fa fa-envelope"></i> {{mailToHelper STRINGS.FOOTER.EMAIL.ADRESS STRINGS.FOOTER.EMAIL.TITLE}}</address>
+			</div>
+			<div class="col-sm-12">
+				{{translateString STRINGS.FOOTER.PRODUCTOWNER.TITLE}}: {{translateString STRINGS.FOOTER.PRODUCTOWNER.NAME}}
+			</div>
+			<div class="col-sm-12">
+				<small><span>&copy;  {{translateString STRINGS.FOOTER.COPYRIGHT}} {{getCurrentYearHelper}}</span></small>
+			</div>
+
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,35 @@
+/* http://jsfiddle.net/jasper/qnmpb/3/ */ 
+.top {
+    position : absolute;
+    top      : 1px;
+    left     : 1px;
+    width    : 0;
+    height   : 0;
+    z-index  : 100;
+    border-left   : 10px solid transparent;
+    border-right  : 10px solid transparent;
+    border-bottom : 10px solid @gu-white;
+}
+.bottom {
+    position : absolute;
+    width    : 0;
+    height   : 0;
+    z-index  : 99;
+    border-left   : 11px solid transparent;
+    border-right  : 11px solid transparent;
+    border-bottom : 11px solid @gray-light;
+    opacity: 0;
+    transition:visibility 0s linear 0.3s, opacity 0.3s linear;
+
+}
+.active {
+    .bottom {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+.arrow {
+    position : relative;
+}
