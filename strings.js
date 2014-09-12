@@ -5,8 +5,8 @@ var STRINGS = {
 			EN: "UB"
 		},
 		SUBHEADING: {
-			SV: "En start för nya frontendprojekt hos DIGIT",
-			EN: "A basic starting place for frontend projects at Digital Services"
+			SV: "dArc",
+			EN: "dArc"
 		}
 	},
 	FOOTER: {
