@@ -57,6 +57,13 @@ module.exports = function(grunt) {
           livereload:true
         }
       },
+      cssmin: {
+        files: 'gu-bootstrap/dist/<%= pkg.name %>.css',
+        tasks: ['cssmin'],
+        options: {
+          livereload:true
+        }
+      },
       less: {
         files: 'gu-bootstrap/custom/**/*.less',
         tasks: ['less'],
