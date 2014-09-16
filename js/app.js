@@ -16,6 +16,7 @@ DS.ObjectTransform = DS.Transform.extend({
 });
 App.register("transform:object", DS.ObjectTransform);
 
+
 App.ApplicationAdapter = DS.FixtureAdapter; // use fixture adapter during development 
 
 /*App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
@@ -37,14 +38,6 @@ App.getTranslatedString = function(strObject) {
 	}
 };
 
-
-App.ApplicationRoute = Ember.Route.extend({
-	model: function() {
-		// this is the place to do init work for the application
-		App.sessionKey = null; // null but please set sessionKey and use this if logged in
-		App.lang = CONFIG.LANG;
-	}
-});
 
 App.ApplicationController = Ember.Controller.extend({
 

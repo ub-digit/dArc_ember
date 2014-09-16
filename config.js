@@ -6,5 +6,5 @@ var CONFIG = {
 	TRACKINGAPPNAME: 'EMBER-INITIAL',
 	LANG: 'SV', // 'EN'
 	DATEFORMAT: 'LL', // Readmore about the dateformats you can use with moment.js here http://momentjs.com/
-	ANIMATIONSPEED: 200
+	ANIMATIONSPEED: 300
 }

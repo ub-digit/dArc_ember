@@ -69,5 +69,25 @@ var STRINGS = {
 			SV: 'Skapa ny',
 			EN: 'Create new'
 		}
+	},
+	PAGES: {
+		AUTHORITIES: {
+			TITLE: {
+				SV: "Auktoriteter",
+				EN: "Authorities"
+			}
+		},
+		AUTHORITY: {
+			TITLE: {
+				SV: "Auktoritet",
+				EN: "Authority"
+			}
+		}
+	},
+	STATUSSTRINGS: {
+		EDITING: {
+			SV: "Editerar",
+			EN: "Editing"
+		}
 	}
 }
