@@ -6138,6 +6138,12 @@ footer a {
   visibility: visible;
   opacity: 1;
 }
+#result-list {
+  border-left: 1px solid #eeeeee;
+}
+#search {
+  margin-bottom: 40px;
+}
 .navbar {
   position: relative;
   min-height: 50px;
@@ -6668,7 +6674,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444444;
 }
 .page-head {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .page-head h1 {
   margin: 0;

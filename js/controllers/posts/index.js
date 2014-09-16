@@ -1,4 +1,5 @@
 App.PostsIndexController = Ember.Controller.extend({
+	needs: "application",
 	actions: {
 		toggleIsEditing: function() {
 			if (this.get('isEditing')) {
@@ -9,7 +10,6 @@ App.PostsIndexController = Ember.Controller.extend({
 			}
 		},
 		createPost: function() {
-			alert("new")
 			this.transitionTo('posts.new');
 		}
 	}
