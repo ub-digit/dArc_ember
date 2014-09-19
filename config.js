@@ -1,6 +1,6 @@
 var CONFIG = {
 	SERVER : {
-		URL: 'http://www.ub.gu.se/'
+		URL: 'http://localhost:3000/api'
 	},
 	TRACKINGID: 'UA-722169-8',
 	TRACKINGAPPNAME: 'EMBER-INITIAL',

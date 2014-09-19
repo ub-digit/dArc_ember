@@ -17,11 +17,11 @@ DS.ObjectTransform = DS.Transform.extend({
 App.register("transform:object", DS.ObjectTransform);
 
 
-App.ApplicationAdapter = DS.FixtureAdapter; // use fixture adapter during development 
+// App.ApplicationAdapter = DS.FixtureAdapter; // use fixture adapter during development 
 
-/*App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
+App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
   host: CONFIG.SERVER.URL
-});*/
+});
 
 
 
