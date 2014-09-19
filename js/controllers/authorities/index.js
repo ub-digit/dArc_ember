@@ -9,8 +9,8 @@ App.AuthoritiesIndexController = Ember.Controller.extend({
 				this.set('isEditing', true);
 			}
 		},
-		createPost: function() {
-			this.transitionTo('posts.new');
+		createAuthority: function() {
+			this.transitionTo('authorities.new');
 		}
 	}
 });

@@ -5,8 +5,45 @@
 				{{#link-to 'authorities'}}<i class="fa fa-chevron-left"></i> <span class="back-title">Auktoriteter</span>{{/link-to}}
 			</div>
 			<div class="col-xs-9">
-				<h1>Ny auktoritet</h1>
+				<h1>Ny Auktoritet</h1>
 			</div>
 		</div> <!-- end row --> 
 	</div> <!-- end page-head --> 
+	<div class="row">
+		<div class="col-xs-10">
+			<table class="table table-striped">
+				<tr>
+					<th>id:</th>
+					<td>{{model.id}}</td>
+				</tr>
+				<tr>
+					<th>Titel:</th>
+					<td>
+							{{input class="form-control" type="text" value=model.title}}
+					</td>
+				</tr>
+				<tr>
+					<th>Typ:</th>
+					<td>
+							{{input class="form-control" type="text" value=model.type}}
+					</td>
+				</tr>
+				<tr>
+					<th>Existerande påbörjat:</th>
+					<td>
+							{{input class="form-control" type="text" value=model.startdate}}
+					</td>
+				</tr>
+				<tr>
+					<th>Existerande avslutat:</th>
+					<td>
+							{{input class="form-control" type="text" value=model.enddate}}
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-2">
+			<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action saveAuthority}}>Spara</button>
+		</div>
+	</div><!-- end row --> 
 </div>

@@ -1,3 +1,3 @@
-App.PostsPostView = App.BaseView.extend({
+App.AuthoritiesPostView = App.BaseView.extend({
 
 });

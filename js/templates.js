@@ -196,7 +196,7 @@ function program6(depth0,data) {
 Ember.TEMPLATES["authorities/new"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
@@ -207,7 +207,40 @@ function program1(depth0,data) {
   data.buffer.push("<div class=\"container-fluid\">	\n	<div class=\"page-head\">\n		<div class=\"row v-align\">\n			<div class=\"col-xs-3\">\n				");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "authorities", options) : helperMissing.call(depth0, "link-to", "authorities", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n			</div>\n			<div class=\"col-xs-9\">\n				<h1>Ny auktoritet</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n</div>");
+  data.buffer.push("\n			</div>\n			<div class=\"col-xs-9\">\n				<h1>Ny Auktoritet</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n	<div class=\"row\">\n		<div class=\"col-xs-10\">\n			<table class=\"table table-striped\">\n				<tr>\n					<th>id:</th>\n					<td>");
+  stack1 = helpers._triageMustache.call(depth0, "model.id", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>Titel:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.title")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Typ:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.type")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Existerande påbörjat:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.startdate")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Existerande avslutat:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.enddate")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n			</table>\n		</div>\n		<div class=\"col-xs-2\">\n			<button ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': (":btn :btn-sm :btn-success")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(" ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "saveAuthority", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data})));
+  data.buffer.push(">Spara</button>\n		</div>\n	</div><!-- end row --> \n</div>");
   return buffer;
   
 });
@@ -567,7 +600,7 @@ function program1(depth0,data) {
   data.buffer.push("<div class=\"container-fluid\">	\n	<div class=\"page-head\">\n		<div class=\"row v-align\">\n			<div class=\"col-xs-3\">\n				");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "posts", options) : helperMissing.call(depth0, "link-to", "posts", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n			</div>\n			<div class=\"col-xs-9\">\n				<h1>Ny auktoritet</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n</div>");
+  data.buffer.push("\n			</div>\n			<div class=\"col-xs-9\">\n				<h1>Ny auktoritetdd</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n</div>");
   return buffer;
   
 });
