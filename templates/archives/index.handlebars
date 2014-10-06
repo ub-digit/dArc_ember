@@ -4,7 +4,7 @@
 			<h3>List of archives</h3>
 			<ul>
 				{{#each item in model}}
-					<li>{{#link-to 'archives.post' item.id}}id: {{item.id}}, exampleStr: {{item.exampleStr}}, exampleBool: {{item.exampleBool}}, exampleDate: {{item.exampleDate}}{{/link-to}}</li>
+					<li>{{#link-to 'archives.show' item.id}}id: {{item.id}}, exampleStr: {{item.exampleStr}}, exampleBool: {{item.exampleBool}}, exampleDate: {{item.exampleDate}}{{/link-to}}</li>
 				{{/each}}
 			</ul>
 		</div>

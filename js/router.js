@@ -3,21 +3,17 @@ App.Router.map(function() {
   	this.resource('authorities', function() {
 	    // this.route('index') is created automatically in here
 	    this.route('new');
-	    this.route('post', {path: ":id"});
+	    this.route('show', {path: ":id"});
 	    
   	});
-  	this.resource('posts', function() {
-	    // this.route('index') is created automatically in here
-	    this.route('post', {path: ":id"});
-	    this.route('new');
-  	});	
+
   	this.resource('archives', function() {
   		// this.route('index') is created automatically in here
-  		this.route('post', {path: ":id"});
+  		this.route('show', {path: ":id"});
   	});
 });
 
-
+/*
 App.Router.reopen({
 	// will nofify analytics on each transition. Trigger pageview. 
 	notifyGoogleAnalytics: function() {
@@ -27,5 +23,5 @@ App.Router.reopen({
 		});
 	}.on('didTransition')
 });
-
+*/
 

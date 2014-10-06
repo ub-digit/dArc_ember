@@ -1,7 +1,7 @@
 App.ArchivesIndexRoute = Ember.Route.extend({
 	model: function() {
 		// get your model(s) here and return it
-		return this.store.find('example');
+		return this.store.find('archive');
 
 	},
 	beforeModel: function() {

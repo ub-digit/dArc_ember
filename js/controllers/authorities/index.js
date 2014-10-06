@@ -10,7 +10,7 @@ App.AuthoritiesIndexController = Ember.Controller.extend({
 			}
 		},
 		createAuthority: function() {
-			this.transitionTo('authorities.new');
+			this.transitionToRoute('authorities.new');
 		}
 	}
 });
