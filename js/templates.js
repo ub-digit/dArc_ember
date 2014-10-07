@@ -92,11 +92,35 @@ function program1(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n			</div>\n			<div class=\"col-xs-9\">\n				<h1>");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.PAGES.ARCHIVE.HEADER", options) : helperMissing.call(depth0, "translateString", "STRINGS.PAGES.ARCHIVE.HEADER", options))));
-  data.buffer.push("</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n	<div class=\"row\">\n		<div class=\"col-xs-10\">\n			<table class=\"table table-striped\">\n				<tr>\n					<th>Titel:</th>\n					<td>\n							");
+  data.buffer.push("</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n	<div class=\"row\">\n		<div class=\"col-xs-10\">\n			<table class=\"table table-striped\">\n				<tr>\n					<th>Title:</th>\n					<td>\n							");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
     'class': ("form-control"),
     'type': ("text"),
     'value': ("model.title")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Unittitle:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.unittitle")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Unitdate:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.unitdate")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Unitid:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.unitid")
+  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Abstract:</th>\n					<td>\n							");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'value': ("model.abstract")
   },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
   data.buffer.push("\n					</td>\n				</tr>\n\n			</table>\n		</div>\n		<div class=\"col-xs-2\">\n			<button ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
@@ -145,6 +169,18 @@ function program3(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>Title:</th>\n					<td>");
   stack1 = helpers._triageMustache.call(depth0, "model.title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>Unittitle:</th>\n					<td>");
+  stack1 = helpers._triageMustache.call(depth0, "model.unittitle", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>Unitdate:</th>\n					<td>");
+  stack1 = helpers._triageMustache.call(depth0, "model.unitdate", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>Unitid:</th>\n					<td>");
+  stack1 = helpers._triageMustache.call(depth0, "model.unitid", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>Abstract:</th>\n					<td>");
+  stack1 = helpers._triageMustache.call(depth0, "model.abstract", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>Authorities:</th>\n					<td>\n						");
   stack1 = helpers.each.call(depth0, "model.authorities", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],data:data});
