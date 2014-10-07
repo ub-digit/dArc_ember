@@ -2,7 +2,7 @@
 	<div class="page-head">
 		<div class="row v-align">
 			<div class="col-xs-2">
-				{{#link-to 'index'}}<i class="fa fa-chevron-left"></i><span class="back-title">Auktoriteter</span>{{/link-to}}
+				{{#link-to 'index'}}<i class="fa fa-chevron-left"></i><span class="back-title">{{translateString STRINGS.PAGES.AUTHORITIES.TITLE}}</span>{{/link-to}} 
 			</div>
 			<div class="col-xs-9">
 				<h1>
@@ -22,6 +22,9 @@
 					<td>{{model.id}}</td>
 				</tr>
 				<tr>
+					<th>pid:</th>
+					<td>{{model.pid}}</td>
+				</tr>				<tr>
 					<th>Titel:</th>
 					<td>
 						{{#if isEditing}}
@@ -64,10 +67,12 @@
 			</table>
 		</div>
 		<div class="col-xs-2">
+			<!--
 			<button {{bind-attr class=":btn :btn-sm :btn-success :btn-block isEditing::disabled"}}>Spara</button>
-			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing::disabled"}} {{action toggleIsEditing}}>Stäng</button>
-			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing:disabled"}} {{action toggleIsEditing}}>Editera</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing::disabled"}} {{action 'toggleIsEditing'}}>Stäng</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing:disabled"}} {{action 'toggleIsEditing'}}>Editera</button>
 			<button class="btn btn-sm btn-danger btn-block">Ta bort</button>
+			-->
 		</div>
 	</div><!-- end row --> 
 </div> <!-- end container --> 

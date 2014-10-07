@@ -2,7 +2,12 @@
 
 var App = Ember.Application.create({
 	rootElement: $("#app"),
-	LOG_TRANSITIONS: true
+	LOG_TRANSITIONS: true,
+	sessionKey: null, // null but please set sessionKey and use this if logged in
+	lang: CONFIG.LANG,
+    LOG_ACTIVE_GENERATION: true,
+// ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    LOG_VIEW_LOOKUPS: true
 });
 
 

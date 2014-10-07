@@ -36,7 +36,7 @@
 							{{#if isEditing }}
 								{{input type="checkbox" name="markedForRemoval" checked=false}}
 							{{/if}}
-							{{#link-to 'authorities.show' item.id}}{{item.fullobject}}{{/link-to}}
+							{{#link-to 'authorities.show' item.id}}{{item.title}} ({{item.id}}) {{/link-to}}
 
 							</li>
 						{{/each}}
@@ -45,10 +45,12 @@
 			</div> <!-- end row -->
 		</div> 
 		<div class="col-xs-2">
-			<button {{action createAuthority}} {{bind-attr class=":btn :btn-sm :btn-primary :btn-block"}}>{{translateString STRINGS.BUTTON.CREATE}}</button>
-			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing::disabled"}} {{action toggleIsEditing}}>{{translateString STRINGS.BUTTON.CLOSE}}</button>
-			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing:disabled"}} {{action toggleIsEditing}}>{{translateString STRINGS.BUTTON.EDIT}}</button>
+			<button {{action 'createAuthority'}} {{bind-attr class=":btn :btn-sm :btn-primary :btn-block"}}>{{translateString STRINGS.BUTTON.CREATE}}</button>
+			<!--
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing::disabled"}} {{action 'toggleIsEditing'}}>{{translateString STRINGS.BUTTON.CLOSE}}</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing:disabled"}} {{action 'toggleIsEditing'}}>{{translateString STRINGS.BUTTON.EDIT}}</button>
 			<button {{bind-attr class=":btn :btn-sm :btn-danger :btn-block isEditing::disabled"}}>{{translateString STRINGS.BUTTON.REMOVE}}</button>
+			-->
 		</div>
 	</div>
 </div>

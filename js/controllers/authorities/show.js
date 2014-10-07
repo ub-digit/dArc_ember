@@ -1,4 +1,4 @@
-App.AuthoritiesPostController = Ember.Controller.extend({
+App.AuthoritiesShowController = Ember.Controller.extend({
 	actions: {
 		toggleIsEditing: function() {
 			if (this.get("isEditing")) {

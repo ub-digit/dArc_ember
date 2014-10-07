@@ -2,14 +2,15 @@ App.Router.map(function() {
   // put your routes here
   	this.resource('authorities', function() {
 	    // this.route('index') is created automatically in here
-	    this.route('new');
 	    this.route('show', {path: ":id"});
+	    this.route('new');
 	    
   	});
 
   	this.resource('archives', function() {
   		// this.route('index') is created automatically in here
   		this.route('show', {path: ":id"});
+	    this.route('new');
   	});
 });
 

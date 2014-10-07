@@ -66,8 +66,8 @@ var STRINGS = {
 			EN: 'Close'
 		},
 		CREATE: {
-			SV: 'Skapa ny',
-			EN: 'Create new'
+			SV: 'Skapa',
+			EN: 'Create'
 		}
 	},
 	PAGES: {
@@ -78,9 +78,29 @@ var STRINGS = {
 			}
 		},
 		AUTHORITY: {
+			HEADER: {
+				SV: "Ny auktoritet",
+				EN: "New Authority"				
+			},
 			TITLE: {
 				SV: "Auktoritet",
 				EN: "Authority"
+			}
+		},
+		ARCHIVES: {
+			TITLE: {
+				SV: "Arkiv",
+				EN: "Archives"
+			}
+		},
+		ARCHIVE: {
+			HEADER: {
+				SV: "Nytt arkiv",
+				EN: "New Archive"				
+			},			
+			TITLE: {
+				SV: "Arkiv",
+				EN: "Archive"
 			}
 		}
 	},

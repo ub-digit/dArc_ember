@@ -1,7 +1,7 @@
-App.AuthoritiesNewRoute = Ember.Route.extend({
+App.ArchivesNewRoute = Ember.Route.extend({
 	model: function() {
 		// get your model(s) here and return it
-		return this.store.createRecord('authority', {});
+		return this.store.createRecord('archive', {});
 
 	},
 	beforeModel: function() {

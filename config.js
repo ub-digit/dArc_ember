@@ -1,6 +1,6 @@
 var CONFIG = {
 	SERVER : {
-		URL: 'http://localhost:3000/api'
+		URL: 'http://130.241.17.243:3000/api'
 	},
 	TRACKINGID: 'UA-722169-8',
 	TRACKINGAPPNAME: 'EMBER-INITIAL',
