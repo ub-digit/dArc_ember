@@ -25,6 +25,8 @@
 
 			this.$el = this.$();
 
+			this._transitionTo = this._transitionTo || this.transitionTo;
+
 			if (!self.isDestroyed) {
 
 				self.willAnimateIn();
@@ -146,7 +148,7 @@
 
 				this.isDestroying = true;
 
-				this.transitionTo('destroying', false);
+				this._transitionTo('destroying', false);
 
 				delete this.$;
 				delete this.$el;
