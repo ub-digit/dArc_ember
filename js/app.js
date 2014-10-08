@@ -24,9 +24,11 @@ App.register("transform:object", DS.ObjectTransform);
 
 // App.ApplicationAdapter = DS.FixtureAdapter; // use fixture adapter during development 
 
-App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
+App.ApplicationAdapter = DS.RESTAdapter.extend({
   host: CONFIG.SERVER.URL
 });
+var inflector = Ember.Inflector.inflector;
+inflector.irregular('person', 'persons');
 
 
 
@@ -47,8 +49,5 @@ App.getTranslatedString = function(strObject) {
 App.ApplicationController = Ember.Controller.extend({
 
 });
-
-
-
 
 
