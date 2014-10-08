@@ -1,0 +1,88 @@
+<div class="container-fluid">
+	<div class="page-head">
+		<div class="row v-align">
+			<div class="col-xs-2">
+				{{#link-to 'index'}}<i class="fa fa-chevron-left"></i><span class="back-title">{{translateString STRINGS.PAGES.PERSONS.TITLE}}</span>{{/link-to}} 
+			</div>
+			<div class="col-xs-9">
+				<h1>
+					{{translateString STRINGS.PAGES.PERSON.TITLE}} 
+					{{#if isEditing}}
+						<small>({{translateString STRINGS.STATUSSTRINGS.EDITING}})</small>
+					{{/if}}
+				</h1>
+				</div>
+		</div> <!-- end row --> 
+	</div> <!-- end page-head --> 
+	<div class="row">
+		<div class="col-xs-10">
+			<table class="table table-striped">
+				<tr>
+					<th>id:</th>
+					<td>{{model.id}}</td>
+				</tr>
+				<tr>
+					<th>pid:</th>
+					<td>{{model.pid}}</td>
+				</tr>				<tr>
+					<th>Titel:</th>
+					<td>
+						{{#if isEditing}}
+							{{input class="form-control" type="text" value=model.title}}
+						{{else}}
+							{{model.title}}
+						{{/if}}
+					</td>
+				</tr>
+				<tr>
+					<th>Förnamn:</th>
+					<td>
+						{{#if isEditing}}
+							{{input class="form-control" type="text" value=model.authorized_forename}}
+						{{else}}
+							{{model.authorized_forename}}
+						{{/if}}
+					</td>
+				</tr>
+				<tr>
+					<th>Efternamn:</th>
+					<td>
+						{{#if isEditing}}
+							{{input class="form-control" type="text" value=model.authorized_surname}}
+						{{else}}
+							{{model.authorized_surname}}
+						{{/if}}
+					</td>
+				</tr>
+				<tr>
+					<th>Existerande påbörjat:</th>
+					<td>
+						{{#if isEditing}}
+							{{input class="form-control" type="text" value=model.startdate}}
+						{{else}}
+							{{model.startdate}}
+						{{/if}}
+					</td>
+				</tr>
+				<tr>
+					<th>Existerande avslutat:</th>
+					<td>
+						{{#if isEditing}}
+							{{input class="form-control" type="text" value=model.enddate}}
+						{{else}}
+							{{model.enddate}}
+						{{/if}}
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-2">
+			<!--
+			<button {{bind-attr class=":btn :btn-sm :btn-success :btn-block isEditing::disabled"}}>Spara</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing::disabled"}} {{action 'toggleIsEditing'}}>Stäng</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-default :btn-block isEditing:disabled"}} {{action 'toggleIsEditing'}}>Editera</button>
+			<button class="btn btn-sm btn-danger btn-block">Ta bort</button>
+			-->
+		</div>
+	</div><!-- end row --> 
+</div> <!-- end container --> 

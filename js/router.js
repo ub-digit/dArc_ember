@@ -12,6 +12,12 @@ App.Router.map(function() {
   		this.route('show', {path: ":id"});
 	    this.route('new');
   	});
+
+  	this.resource('persons', function() {
+  		// this.route('index') is created automatically in here
+  		this.route('show', {path: ":id"});
+	    //this.route('new');
+  	});
 });
 
 /*

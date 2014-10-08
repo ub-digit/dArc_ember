@@ -44,8 +44,8 @@ var STRINGS = {
 			EN: "Archive"
 		},
 		MENU_3_TITLE: {
-			SV: "MENU_3_TITLE",
-			EN: "MENU_3_TITLE"
+			SV: "Personer",
+			EN: "Persons"
 		},
 	},
 	BUTTON: {
@@ -101,6 +101,18 @@ var STRINGS = {
 			TITLE: {
 				SV: "Arkiv",
 				EN: "Archive"
+			}
+		},
+		PERSONS: {
+			TITLE: {
+				SV: "Personer",
+				EN: "Persons"
+			}
+		},
+		PERSON: {
+			TITLE: {
+				SV: "Person",
+				EN: "Person"
 			}
 		}
 	},
