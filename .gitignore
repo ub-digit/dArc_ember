@@ -10,3 +10,4 @@ etc
 log
 tmp
 deploy-info.txt
+/config.js
