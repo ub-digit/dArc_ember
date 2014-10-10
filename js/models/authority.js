@@ -3,6 +3,7 @@ App.Authority = DS.Model.extend({
   title: DS.attr('string'),
   type: DS.attr('string'),
   startdate: DS.attr('string'),
-  enddate: DS.attr('string')
+  enddate: DS.attr('string'),
+  archives: DS.hasMany('archive', {async: true})
 
 });

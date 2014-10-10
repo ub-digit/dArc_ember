@@ -82,9 +82,15 @@ function program1(depth0,data) {
   
   var buffer = '', helper, options;
   data.buffer.push("<i class=\"fa fa-chevron-left\"></i> <span class=\"back-title\">");
-  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.PAGES.AUTHORITIES.TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.PAGES.AUTHORITIES.TITLE", options))));
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.PAGES.ARCHIVES.TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.PAGES.ARCHIVES.TITLE", options))));
   data.buffer.push("</span>");
   return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  
+  data.buffer.push("\n		<h4 class=\"alert alert-danger\">Arkivet kunde inte sparas.</h4>\n	");
   }
 
   data.buffer.push("<div class=\"container-fluid\">	\n	<div class=\"page-head\">\n		<div class=\"row v-align\">\n			<div class=\"col-xs-3\">\n				");
@@ -92,43 +98,57 @@ function program1(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n			</div>\n			<div class=\"col-xs-9\">\n				<h1>");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.PAGES.ARCHIVE.HEADER", options) : helperMissing.call(depth0, "translateString", "STRINGS.PAGES.ARCHIVE.HEADER", options))));
-  data.buffer.push("</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n	<div class=\"row\">\n		<div class=\"col-xs-10\">\n			<table class=\"table table-striped\">\n				<tr>\n					<th>Title:</th>\n					<td>\n							");
+  data.buffer.push("</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n\n	");
+  stack1 = helpers['if'].call(depth0, "hasErrors", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("	\n	<div class=\"row\">\n		<div class=\"col-xs-10\">\n\n			<div>\n				<label class=\"control-label\">Titel:<br/>\n					");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-    'class': ("form-control"),
     'type': ("text"),
-    'value': ("model.title")
-  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Unittitle:</th>\n					<td>\n							");
+    'classBinding': (":form-control"),
+    'value': ("archive.title")
+  },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n				</label>\n			</div>\n			<div>\n				<label class=\"control-label\">Unittitle:<br/>\n					");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-    'class': ("form-control"),
     'type': ("text"),
-    'value': ("model.unittitle")
-  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Unitdate:</th>\n					<td>\n							");
+    'classBinding': (":form-control"),
+    'value': ("archive.unittitle")
+  },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n				</label>\n			</div>\n			<div>\n				<label class=\"control-label\">Unitdate:<br/>\n					");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-    'class': ("form-control"),
     'type': ("text"),
-    'value': ("model.unitdate")
-  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Unitid:</th>\n					<td>\n							");
+    'classBinding': (":form-control"),
+    'value': ("archive.unitdate")
+  },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n				</label>\n			</div>\n			<div>\n				<label class=\"control-label\">Unitid:<br/>\n					");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-    'class': ("form-control"),
     'type': ("text"),
-    'value': ("model.unitid")
-  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n					</td>\n				</tr>\n				<tr>\n					<th>Abstract:</th>\n					<td>\n							");
-  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-    'class': ("form-control"),
-    'type': ("text"),
-    'value': ("model.abstract")
-  },hashTypes:{'class': "STRING",'type': "STRING",'value': "ID"},hashContexts:{'class': depth0,'type': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n					</td>\n				</tr>\n\n			</table>\n		</div>\n		<div class=\"col-xs-2\">\n			<button ");
+    'classBinding': (":form-control"),
+    'value': ("archive.unitid")
+  },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n				</label>\n			</div>\n			<div>\n				<label class=\"control-label\">Abstract:<br/>\n					");
+  data.buffer.push(escapeExpression((helper = helpers.textarea || (depth0 && depth0.textarea),options={hash:{
+    'cols': ("80"),
+    'rows': ("6"),
+    'classBinding': (":form-control"),
+    'value': ("archive.abstract")
+  },hashTypes:{'cols': "STRING",'rows': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'cols': depth0,'rows': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
+  data.buffer.push("\n				</label>\n			</div>\n			<div>\n				<label class=\"control-label\">Auktoritet:<br/>\n				");
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Select", {hash:{
+    'multiple': ("multiple"),
+    'classNames': ("form-control"),
+    'contentBinding': ("controller"),
+    'selectionBinding': ("controller.selectedAuthorities"),
+    'content': ("authorities"),
+    'optionValuePath': ("content.id"),
+    'optionLabelPath': ("content.title")
+  },hashTypes:{'multiple': "STRING",'classNames': "STRING",'contentBinding': "STRING",'selectionBinding': "STRING",'content': "ID",'optionValuePath': "STRING",'optionLabelPath': "STRING"},hashContexts:{'multiple': depth0,'classNames': depth0,'contentBinding': depth0,'selectionBinding': depth0,'content': depth0,'optionValuePath': depth0,'optionLabelPath': depth0},contexts:[depth0],types:["ID"],data:data})));
+  data.buffer.push("\n				</label>\n			</div>\n\n			<div>\n				<button ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': (":btn :btn-sm :btn-success")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
   data.buffer.push(" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "saveArchive", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
-  data.buffer.push(">Spara</button>\n		</div>\n	</div><!-- end row --> \n</div>");
+  data.buffer.push(">Spara</button>\n			</div>\n		</div>\n	</div><!-- end row --> \n</div>");
   return buffer;
   
 });
@@ -149,10 +169,20 @@ function program1(depth0,data) {
 
 function program3(depth0,data) {
   
+  var stack1, helper, options;
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "authorities.show", "id", options) : helperMissing.call(depth0, "link-to", "authorities.show", "id", options));
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  else { data.buffer.push(''); }
+  }
+function program4(depth0,data) {
+  
   var buffer = '', stack1;
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push(", ");
+  data.buffer.push(" (");
+  stack1 = helpers._triageMustache.call(depth0, "id", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push(") ");
   return buffer;
   }
 

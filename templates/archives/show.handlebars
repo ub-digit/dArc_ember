@@ -43,7 +43,7 @@
 				<tr>
 					<th>Authorities:</th>
 					<td>
-						{{#each model.authorities }}{{title}}, {{/each}}
+						{{#each model.authorities }}{{#link-to 'authorities.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
 					</td>
 				</tr>							
 			</table>

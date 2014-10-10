@@ -22,15 +22,15 @@ DS.ObjectTransform = DS.Transform.extend({
 App.register("transform:object", DS.ObjectTransform);
 
 
-// App.ApplicationAdapter = DS.FixtureAdapter; // use fixture adapter during development 
-
+//App.ApplicationAdapter = DS.FixtureAdapter;
+//App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
 App.ApplicationAdapter = DS.RESTAdapter.extend({
   host: CONFIG.SERVER.URL
 });
 var inflector = Ember.Inflector.inflector;
 inflector.irregular('person', 'persons');
 
-
+//App.ApplicationSerializer = DS.ActiveModelSerializer.extend({});
 
 /* needed both from JS and from handlebars files */
 App.getTranslatedString = function(strObject) {
