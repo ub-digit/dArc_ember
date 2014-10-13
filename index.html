@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Ember initial - basic setup for new frontend project at DIGIT</title>
   <link rel="stylesheet" href="gu-bootstrap/dist/ember-initial.css">
+  <link rel="stylesheet" href="node_modules/jstree/dist/themes/default/style.min.css">
 </head>
 <body>
 
@@ -22,6 +23,7 @@
   <script src="js/libs/jquery.scrollTo.min.js"></script> <!-- super handy scritp for scrolling inside a page --> 
   <script src="js/libs/moment.js"></script> <!-- momentjs.com - easily format dates --> 
   <script src="js/libs/snippets.js"></script> <!-- small functions that are useful is collected here --> 
+  <script src="node_modules/jstree/dist/jstree.min.js"></script>
 
   <script src="config.js"></script>
   <script src="strings.js"></script>
@@ -51,6 +53,8 @@
   <script src="js/routes/disks/new.js"></script>
 
   <!-- controllers -->  
+  <script src="js/controllers/navtree.js"></script>
+
   <script src="js/controllers/authorities/index.js"></script>
   <script src="js/controllers/authorities/show.js"></script>
   <script src="js/controllers/authorities/new.js"></script>
@@ -63,6 +67,7 @@
 
   <!-- views --> 
   <script src="js/views/baseview.js"></script>
+  <script src="js/views/navtree.js"></script>
 
   <script src="js/views/authorities/index.js"></script>
   <script src="js/views/authorities/new.js"></script>
