@@ -3,9 +3,16 @@ App.DisksNewController = Ember.Controller.extend({
 	actions: {
 		saveDisk: function() {
 			var self = this;
-			self.get("model").save().then(function(model){
-				self.transitionToRoute('disks.show', model.id)
-			}, function(data){return false;})
+
+      		var successHandler = function(model) {
+        		self.transitionToRoute('disks.show', model.id);
+     		 }
+
+	      	var errorHandler = function(reason) {
+       			self.set('hasErrors', true);
+	        	return false;
+	      	}
+			self.get("model").save().then(successHandler, errorHandler);
 		}
 	}
 });
