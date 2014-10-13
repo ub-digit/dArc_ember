@@ -5,7 +5,6 @@ App.Archive = DS.Model.extend({
   unitdate: DS.attr('string'),
   unitid: DS.attr('string'),
   abstract: DS.attr('string'),
-  test: DS.attr('string'),
   authorities: DS.hasMany('authority', {async: true})
 	
 });

@@ -35,18 +35,22 @@ var STRINGS = {
 		}
 	},
 	MAINMENU: {
-		MENU_1_TITLE: {
+		MENU_AUTHORITIES: {
 			SV: "Auktoriteter",
 			EN: "Authorities"
 		},
-		MENU_2_TITLE: {
+		MENU_ARCHIVES: {
 			SV: "Arkiv",
 			EN: "Archive"
 		},
-		MENU_3_TITLE: {
+		MENU_PERSONS: {
 			SV: "Personer",
 			EN: "Persons"
 		},
+		MENU_DISKS: {
+			SV: "Diskar",
+			EN: "Disks"
+		}
 	},
 	BUTTON: {
 		SAVE: {
@@ -87,6 +91,18 @@ var STRINGS = {
 				EN: "Authority"
 			}
 		},
+		PERSONS: {
+			TITLE: {
+				SV: "Personer",
+				EN: "Persons"
+			}
+		},
+		PERSON: {
+			TITLE: {
+				SV: "Person",
+				EN: "Person"
+			}
+		},		
 		ARCHIVES: {
 			TITLE: {
 				SV: "Arkiv",
@@ -103,16 +119,20 @@ var STRINGS = {
 				EN: "Archive"
 			}
 		},
-		PERSONS: {
+		DISKS: {
 			TITLE: {
-				SV: "Personer",
-				EN: "Persons"
+				SV: "Diskar",
+				EN: "Disks"
 			}
 		},
-		PERSON: {
+		DISK: {
+			HEADER: {
+				SV: "Ny disk",
+				EN: "New Disk"				
+			},			
 			TITLE: {
-				SV: "Person",
-				EN: "Person"
+				SV: "Disk",
+				EN: "Disk"
 			}
 		}
 	},

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="page-head">
+		<div class="row v-align">
+			<div class="col-xs-12">
+				<h1>
+					{{translateString STRINGS.PAGES.DISKS.TITLE}}
+				</h1>
+			</div>
+		</div> <!-- end row --> 
+	</div> <!-- end page-head --> 				
+
+
+	<div class="row">
+		<div id="result-list" class="col-xs-10">
+			<div class="row">
+				<div class="col-xs-12">
+					<ul>
+						{{#each item in model}}
+						<li>{{#link-to 'disks.show' item.id}}{{item.title}} ({{item.id}}) {{/link-to}}</li>
+						{{/each}}
+					</ul>
+				</div>
+			</div> <!-- end row -->
+		</div> 
+
+		<div class="col-xs-2">
+			<button {{action 'createDisk'}} {{bind-attr class=":btn :btn-sm :btn-primary :btn-block"}}>{{translateString STRINGS.BUTTON.CREATE}}</button>
+
+		</div>
+	</div>
+</div>

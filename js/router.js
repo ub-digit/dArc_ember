@@ -6,6 +6,11 @@ App.Router.map(function() {
 	    this.route('new');
 	    
   	});
+  	this.resource('persons', function() {
+  		// this.route('index') is created automatically in here
+  		this.route('show', {path: ":id"});
+	    //this.route('new');
+  	});
 
   	this.resource('archives', function() {
   		// this.route('index') is created automatically in here
@@ -13,11 +18,12 @@ App.Router.map(function() {
 	    this.route('new');
   	});
 
-  	this.resource('persons', function() {
+  	this.resource('disks', function() {
   		// this.route('index') is created automatically in here
   		this.route('show', {path: ":id"});
-	    //this.route('new');
+	    this.route('new');
   	});
+
 });
 
 /*

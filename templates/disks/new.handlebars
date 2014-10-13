@@ -1,0 +1,30 @@
+<div class="container-fluid">	
+	<div class="page-head">
+		<div class="row v-align">
+			<div class="col-xs-3">
+				{{#link-to 'authorities'}}<i class="fa fa-chevron-left"></i> <span class="back-title">{{translateString STRINGS.PAGES.DISKS.TITLE}}</span>{{/link-to}}
+			</div>
+			<div class="col-xs-9">
+				<h1>{{translateString STRINGS.PAGES.DISK.HEADER}}</h1>
+			</div>
+		</div> <!-- end row --> 
+	</div> <!-- end page-head --> 
+
+	{{#if hasErrors}}
+		<h4 class="alert alert-danger">Disken kunde inte sparas.</h4>
+	{{/if}}	
+	<div class="row">
+		<div class="col-xs-10">
+
+			<div>
+				<label class="control-label">Titel:<br/>
+					{{input type='text' classBinding=":form-control" value=model.title}}
+				</label>
+			</div>
+
+			<div>
+				<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveDisk'}}>Spara</button>
+			</div>
+		</div>
+	</div><!-- end row --> 
+</div>

@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-          {{#link-to 'authorities'}}{{translateString STRINGS.MAINMENU.MENU_1_TITLE}}          
+          {{#link-to 'authorities'}}{{translateString STRINGS.MAINMENU.MENU_AUTHORITIES}}          
             <div class="active-indicator">
               <div class="arrow">
                 <div class="top"></div>
@@ -25,7 +25,7 @@
           {{/link-to}}
         </li>
         <li>
-          {{#link-to 'archives'}}{{translateString STRINGS.MAINMENU.MENU_2_TITLE}}
+          {{#link-to 'persons'}}{{translateString STRINGS.MAINMENU.MENU_PERSONS}}
             <div class="active-indicator">
               <div class="arrow">
                 <div class="top"></div>
@@ -35,7 +35,17 @@
           {{/link-to}}
         </li>
         <li>
-          {{#link-to 'persons'}}{{translateString STRINGS.MAINMENU.MENU_3_TITLE}}
+          {{#link-to 'archives'}}{{translateString STRINGS.MAINMENU.MENU_ARCHIVES}}
+            <div class="active-indicator">
+              <div class="arrow">
+                <div class="top"></div>
+                <div class="bottom"></div>
+              </div>
+            </div>
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'disks'}}{{translateString STRINGS.MAINMENU.MENU_DISKS}}
             <div class="active-indicator">
               <div class="arrow">
                 <div class="top"></div>
