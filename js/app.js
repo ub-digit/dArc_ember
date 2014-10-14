@@ -23,8 +23,8 @@ App.register("transform:object", DS.ObjectTransform);
 
 
 //App.ApplicationAdapter = DS.FixtureAdapter;
-//App.ApplicationAdapter = DS.RESTAdapter.extend({
-App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
+App.ApplicationAdapter = DS.RESTAdapter.extend({
+//App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
   host: CONFIG.SERVER.URL,
   coalesceFindRequests: false
 });
