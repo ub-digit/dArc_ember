@@ -18,6 +18,7 @@ App.ArchivesNewController = Ember.Controller.extend({
 
 			var auths = [];
 			$.each(that.get("selectedAuthorities"), function(key, value){
+				console.log(key);
 				auths.push(that.get("selectedAuthorities")[key]);
 			});
 

@@ -1,7 +1,12 @@
 App.DisksNewRoute = Ember.Route.extend({
 	model: function() {
 		// get your model(s) here and return it
-		return this.store.createRecord('disk', {});
+
+        var store = this.store;
+        return Ember.RSVP.hash({
+          disk: store.createRecord('disk', {}),
+          archives: store.find('archive')
+        });
 
 	},
 	beforeModel: function() {
@@ -12,8 +17,14 @@ App.DisksNewRoute = Ember.Route.extend({
   // The code below is the default behavior, so if this is all you
   // need, you do not need to provide a setupController implementation
   // at all.
-	setupController: function(controller, model) {
-		controller.set('model', model); // if you need setupController you will need this line
+	setupController: function(controller, models) {
+		var disk = models.disk;
+	    var archives = models.archives;
+		
+    	controller.set('disk', disk);		
+    	controller.set('archives', archives);
 		//controller.set('isEditing', false);
+	    controller.set('hasErrors', null);
+
 	}
 });

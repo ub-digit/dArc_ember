@@ -2,19 +2,22 @@ App.DisksNewController = Ember.Controller.extend({
 	needs: "application",
 	actions: {
 		saveDisk: function() {
-			var self = this;
+			var that = this;
 
       		var successHandler = function(model) {
-        		self.transitionToRoute('disks.show', model.id);
+        		that.transitionToRoute('disks.show', model.id);
      		 }
 
 	      	var errorHandler = function(reason) {
-       			self.set('hasErrors', true);
+       			that.set('hasErrors', true);
 	        	return false;
 	      	}
-			self.get("model").save().then(successHandler, errorHandler);
+
+			that.get("disk").get("archives").then(function(archives) {
+				archives.pushObject(that.get("selectedArchives"));
+     			that.get("disk").save().then(successHandler, errorHandler);				
+			});
 		}
 	}
 });
-
 

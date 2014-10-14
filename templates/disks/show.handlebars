@@ -24,6 +24,12 @@
 					<th>Title:</th>
 					<td>{{model.title}}</td>
 				</tr>
+				<tr>
+					<th>Arkiv:</th>
+					<td>
+						{{#each model.archives }}{{#link-to 'archives.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
+					</td>
+				</tr>							
 						
 			</table>
 		</div>

@@ -46,6 +46,12 @@
 						{{#each model.authorities }}{{#link-to 'authorities.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
 					</td>
 				</tr>							
+				<tr>
+					<th>Disks:</th>
+					<td>
+						{{#each model.disks }}{{#link-to 'disks.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
+					</td>
+				</tr>	
 			</table>
 		</div>
 	</div><!-- end row --> 

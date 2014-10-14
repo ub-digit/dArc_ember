@@ -22,7 +22,7 @@ App.ArchivesNewRoute = Ember.Route.extend({
 		
     	controller.set('archive', archive);
     	controller.set('authorities', authorities);
-    	controller.set('selected_authorities', []);
+    	//controller.set('selected_authorities', []);
 
 	    controller.set('hasErrors', null);
 		//controller.set('isEditing', false);
