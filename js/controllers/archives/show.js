@@ -8,6 +8,8 @@ App.ArchivesShowController = Ember.Controller.extend({
 
 	      	var errorHandler = function(reason) {
        			that.set('hasErrors', true);
+       			that.set('errors', reason.responseJSON.errors)
+
 	        	return false;
 	      	}
 

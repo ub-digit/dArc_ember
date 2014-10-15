@@ -6,6 +6,7 @@ App.ArchivesShowRoute = Ember.Route.extend({
 	setupController: function(controller, model) {
 		controller.set("model", model);
        	controller.set('hasErrors', null);
+       	controller.set('errors', null)
 		
 		//controller.set("isEditing", false);
 	}	

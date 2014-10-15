@@ -198,9 +198,12 @@ function program3(depth0,data) {
 
 function program5(depth0,data) {
   
-  var buffer = '', helper, options;
+  var buffer = '', stack1, helper, options;
   data.buffer.push("\n		<h4 class=\"alert alert-danger\">");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.ERRORS.ARCHIVE.REMOVE_GENERAL", options) : helperMissing.call(depth0, "translateString", "STRINGS.ERRORS.ARCHIVE.REMOVE_GENERAL", options))));
+  data.buffer.push(": ");
+  stack1 = helpers._triageMustache.call(depth0, "errors.disks", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</h4>\n	");
   return buffer;
   }
@@ -238,7 +241,7 @@ function program10(depth0,data) {
   data.buffer.push("\n				</h1>\n			</div>\n		</div> <!-- end row --> \n	</div> <!-- end page-head --> \n	");
   stack1 = helpers['if'].call(depth0, "hasErrors", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("	\n\n	<div class=\"row\">\n		<div class=\"col-xs-12\">\n			<table class=\"table table-striped\">\n				<tr>\n					<th>");
+  data.buffer.push("	\n\n	<div class=\"row\">\n		<div class=\"col-xs-12\">\n\n\n			<table class=\"table table-striped\">\n				<tr>\n					<th>");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.ID", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.ID", options))));
   data.buffer.push(":</th>\n					<td>");
   stack1 = helpers._triageMustache.call(depth0, "model.id", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
@@ -248,7 +251,7 @@ function program10(depth0,data) {
   data.buffer.push(":</th>\n					<td>");
   stack1 = helpers._triageMustache.call(depth0, "model.pid", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</td>\n				</tr>\n<!--\n				<tr>\n					<th>");
+  data.buffer.push("</td>\n				</tr>\n\n\n<!--\n				<tr>\n					<th>");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.TITLE", options))));
   data.buffer.push(":</th>\n					<td>");
   stack1 = helpers._triageMustache.call(depth0, "model.title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});

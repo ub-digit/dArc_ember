@@ -9,11 +9,13 @@
 		</div> <!-- end row --> 
 	</div> <!-- end page-head --> 
 	{{#if hasErrors}}
-		<h4 class="alert alert-danger">{{translateString STRINGS.ERRORS.ARCHIVE.REMOVE_GENERAL}}</h4>
+		<h4 class="alert alert-danger">{{translateString STRINGS.ERRORS.ARCHIVE.REMOVE_GENERAL}}: {{errors.disks}}</h4>
 	{{/if}}	
 
 	<div class="row">
 		<div class="col-xs-12">
+
+
 			<table class="table table-striped">
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.ID}}:</th>
@@ -23,6 +25,8 @@
 					<th>{{translateString STRINGS.FIELDS.PID}}:</th>
 					<td>{{model.pid}}</td>
 				</tr>
+
+
 <!--
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.TITLE}}:</th>
