@@ -1,9 +1,11 @@
 <div class="container-fluid">	
 	<div class="page-head">
 		<div class="row v-align">
+<!--
 			<div class="col-xs-3">
 				{{#link-to 'authorities'}}<i class="fa fa-chevron-left"></i> <span class="back-title">{{translateString STRINGS.PAGES.ARCHIVES.TITLE}}</span>{{/link-to}}
 			</div>
+-->
 			<div class="col-xs-9">
 				<h1>{{translateString STRINGS.PAGES.ARCHIVE.HEADER}}</h1>
 			</div>
@@ -11,38 +13,38 @@
 	</div> <!-- end page-head --> 
 
 	{{#if hasErrors}}
-		<h4 class="alert alert-danger">Arkivet kunde inte sparas.</h4>
+		<h4 class="alert alert-danger">{{translateString STRINGS.ERRORS.ARCHIVE.CREATE_GENERAL}}</h4>
 	{{/if}}	
 	<div class="row">
 		<div class="col-xs-10">
 
 			<div>
-				<label class="control-label">Titel:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.TITLE}}:<br/>
 					{{input type='text' classBinding=":form-control" value=archive.title}}
 				</label>
 			</div>
 			<div>
-				<label class="control-label">Unittitle:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.UNIT_TITLE}}:<br/>
 					{{input type='text' classBinding=":form-control" value=archive.unittitle}}
 				</label>
 			</div>
 			<div>
-				<label class="control-label">Unitdate:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.UNIT_DATE}}:<br/>
 					{{input type='text' classBinding=":form-control" value=archive.unitdate}}
 				</label>
 			</div>
 			<div>
-				<label class="control-label">Unitid:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.UNIT_ID}}:<br/>
 					{{input type='text' classBinding=":form-control" value=archive.unitid}}
 				</label>
 			</div>
 			<div>
-				<label class="control-label">Abstract:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.ABSTRACT}}:<br/>
 					{{textarea cols='80' rows='6' classBinding=":form-control" value=archive.abstract}}
 				</label>
 			</div>
 			<div>
-				<label class="control-label">Auktoritet:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.AUTHORITIES}}:<br/>
 				{{view Ember.Select multiple="multiple" 
 									classNames="form-control" 
 								    contentBinding="controller"
@@ -54,7 +56,7 @@
 			</div>
 
 			<div>
-				<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveArchive'}}>Spara</button>
+				<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveArchive'}}>{{translateString STRINGS.BUTTON.SAVE}}</button>
 			</div>
 		</div>
 	</div><!-- end row --> 

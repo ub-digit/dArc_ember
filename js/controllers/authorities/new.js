@@ -3,10 +3,17 @@ App.AuthoritiesNewController = Ember.Controller.extend({
 	actions: {
 		saveAuthority: function() {
 			var self = this;
-			self.get("model").save().then(function(model){
+
+      		var successHandler = function(model) {
 				self.transitionToRoute('authorities.show', model.id)
-			}, function(data){return false;})
-			//return true;
+     		 }
+
+	      	var errorHandler = function(reason) {
+       			self.set('hasErrors', true);
+	        	return false;
+	      	}
+			self.get("model").save().then(successHandler, errorHandler);
 		}
+
 	}
 });

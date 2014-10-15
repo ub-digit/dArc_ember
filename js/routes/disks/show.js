@@ -5,6 +5,7 @@ App.DisksShowRoute = Ember.Route.extend({
 
 	setupController: function(controller, model) {
 		controller.set("model", model);
+       	controller.set('hasErrors', null);
 		//controller.set("isEditing", false);
 	}	
 });

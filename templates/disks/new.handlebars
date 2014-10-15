@@ -1,9 +1,6 @@
 <div class="container-fluid">	
 	<div class="page-head">
 		<div class="row v-align">
-			<div class="col-xs-3">
-				{{#link-to 'disks'}}<i class="fa fa-chevron-left"></i> <span class="back-title">{{translateString STRINGS.PAGES.DISKS.TITLE}}</span>{{/link-to}}
-			</div>
 			<div class="col-xs-9">
 				<h1>{{translateString STRINGS.PAGES.DISK.HEADER}}</h1>
 			</div>
@@ -11,19 +8,19 @@
 	</div> <!-- end page-head --> 
 
 	{{#if hasErrors}}
-		<h4 class="alert alert-danger">Disken kunde inte sparas.</h4>
+		<h4 class="alert alert-danger">{{translateString STRINGS.ERRORS.DISK.CREATE_GENERAL}}</h4>
 	{{/if}}	
 	<div class="row">
 		<div class="col-xs-10">
 
 			<div>
-				<label class="control-label">Titel:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.TITLE}}:<br/>
 					{{input type='text' classBinding=":form-control" value=disk.title}}
 				</label>
 			</div>
 
 			<div>
-				<label class="control-label">Arkiv:<br/>
+				<label class="control-label">{{translateString STRINGS.FIELDS.ARCHIVES}}:<br/>
 				{{view Ember.Select classNames="form-control" 
 								    contentBinding="controller"
     								selectionBinding="controller.selectedArchives"
@@ -34,7 +31,7 @@
 			</div>
 
 			<div>
-				<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveDisk'}}>Spara</button>
+				<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveDisk'}}>{{translateString STRINGS.BUTTON.SAVE}}</button>
 			</div>
 		</div>
 	</div><!-- end row --> 

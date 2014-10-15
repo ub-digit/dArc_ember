@@ -1,37 +1,37 @@
 <div class="container-fluid">	
 	<div class="page-head">
 		<div class="row v-align">
-			<div class="col-xs-3">
-				{{#link-to 'authorities'}}<i class="fa fa-chevron-left"></i> <span class="back-title">{{translateString STRINGS.PAGES.AUTHORITIES.TITLE}}</span>{{/link-to}}
-			</div>
 			<div class="col-xs-9">
 				<h1>{{translateString STRINGS.PAGES.AUTHORITY.HEADER}}</h1>
 			</div>
 		</div> <!-- end row --> 
 	</div> <!-- end page-head --> 
+	{{#if hasErrors}}
+		<h4 class="alert alert-danger">{{translateString STRINGS.ERRORS.AUTHORITY.CREATE_GENERAL}}</h4>
+	{{/if}}	
 	<div class="row">
 		<div class="col-xs-10">
 			<table class="table table-striped">
 				<tr>
-					<th>Titel:</th>
+					<th>{{translateString STRINGS.FIELDS.TITLE}}:</th>
 					<td>
 							{{input class="form-control" type="text" value=model.title}}
 					</td>
 				</tr>
 				<tr>
-					<th>Typ:</th>
+					<th>{{translateString STRINGS.FIELDS.TYPE}}:</th>
 					<td>
 							{{input class="form-control" type="text" value=model.type}}
 					</td>
 				</tr>
 				<tr>
-					<th>Existerande påbörjat:</th>
+					<th>{{translateString STRINGS.FIELDS.EXISTING_STARTDATE}}:</th>
 					<td>
 							{{input class="form-control" type="text" value=model.startdate}}
 					</td>
 				</tr>
 				<tr>
-					<th>Existerande avslutat:</th>
+					<th>{{translateString STRINGS.FIELDS.EXISTING_ENDDATE}}:</th>
 					<td>
 							{{input class="form-control" type="text" value=model.enddate}}
 					</td>
@@ -39,7 +39,7 @@
 			</table>
 		</div>
 		<div class="col-xs-2">
-			<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveAuthority'}}>Spara</button>
+			<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveAuthority'}}>{{translateString STRINGS.BUTTON.SAVE}}</button>
 		</div>
 	</div><!-- end row --> 
 </div>
