@@ -113,8 +113,8 @@ var STRINGS = {
 		},		
 		ARCHIVES: {
 			TITLE: {
-				SV: "Arkiv",
-				EN: "Archives"
+				SV: "Välj ett arkiv i trädet till vänster",
+				EN: "Select an archive in the tree to the left"
 			}
 		},
 		ARCHIVE: {
@@ -183,8 +183,8 @@ var STRINGS = {
 			EN: "authorized_surname"					
 		},
 		UNIT_TITLE: {
-			SV: "Arkivtitle",
-			EN: "Archive Title"					
+			SV: "Beskrivning",
+			EN: "Description"					
 		},
 		UNIT_DATE: {
 			SV: "Datum",

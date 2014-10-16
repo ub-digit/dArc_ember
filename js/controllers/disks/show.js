@@ -4,7 +4,7 @@ App.DisksShowController = Ember.Controller.extend({
 			var that = this;
 
       		var successHandler = function(model) {
-				that.transitionToRoute('disks.index');
+				that.transitionToRoute('archives.index');
      		 }
 
 	      	var errorHandler = function(reason) {
