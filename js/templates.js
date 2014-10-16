@@ -974,10 +974,27 @@ function program5(depth0,data) {
 Ember.TEMPLATES["navtree"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  
+  var buffer = '', helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
 
 
-  data.buffer.push("<div class=\"container-fluid\">\n	<div class=\"row\">\n	  <div id=\"navtree\"></div>\n	</div> <!-- end row --> \n</div> <!-- end container -->\n");
+  data.buffer.push("<div class=\"container-fluid\">\n	<div class=\"row\">\n	  <div id=\"navtree\"></div>\n	</div> <!-- end row --> \n	<div class=\"row\">\n	  <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "createArchive", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
+  data.buffer.push(" ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': (":btn :btn-sm :btn-primary :btn-block")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">");
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.BUTTON.CREATE_ARCHIVE", options) : helperMissing.call(depth0, "translateString", "STRINGS.BUTTON.CREATE_ARCHIVE", options))));
+  data.buffer.push("</button>\n	  <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "createDisk", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
+  data.buffer.push(" ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': (":btn :btn-sm :btn-primary :btn-block")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">");
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.BUTTON.CREATE_DISK", options) : helperMissing.call(depth0, "translateString", "STRINGS.BUTTON.CREATE_DISK", options))));
+  data.buffer.push("</button>\n	</div> <!-- end row --> \n</div> <!-- end container -->\n");
+  return buffer;
   
 });
 

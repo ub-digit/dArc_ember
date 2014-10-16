@@ -72,6 +72,14 @@ var STRINGS = {
 		CREATE: {
 			SV: 'Skapa',
 			EN: 'Create'
+		},
+		CREATE_ARCHIVE: {
+			SV: 'Skapa arkiv',
+			EN: 'Create archive'
+		},
+		CREATE_DISK: {
+			SV: 'Skapa disk',
+			EN: 'Create disk'
 		}
 	},
 	PAGES: {
