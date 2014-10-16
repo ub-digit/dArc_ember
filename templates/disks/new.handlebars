@@ -9,13 +9,30 @@
 
 	{{#if hasErrors}}
 		<h4 class="alert alert-danger">{{translateString STRINGS.ERRORS.DISK.CREATE_GENERAL}}</h4>
+		{{#if errors}}
+		{{#each errors}}
+			{{message}}
+		{{/each}}
+		{{/if}}
 	{{/if}}	
 	<div class="row">
 		<div class="col-xs-10">
 
 			<div>
-				<label class="control-label">{{translateString STRINGS.FIELDS.TITLE}}:<br/>
-					{{input type='text' classBinding=":form-control" value=disk.title}}
+				<label class="control-label">{{translateString STRINGS.FIELDS.UNIT_TITLE}}:<br/>
+					{{input type='text' classBinding=":form-control" value=disk.item_unittitle}}
+				</label>
+			</div>
+
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.UNIT_DATE}}:<br/>
+					{{input type='text' classBinding=":form-control" value=disk.item_unitdate}}
+				</label>
+			</div>
+
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.UNIT_ID}}:<br/>
+					{{input type='text' classBinding=":form-control" value=disk.item_unitid}}
 				</label>
 			</div>
 

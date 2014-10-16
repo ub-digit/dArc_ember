@@ -107,14 +107,6 @@ function program3(depth0,data) {
   stack1 = helpers['if'].call(depth0, "hasErrors", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("	\n	<div class=\"row\">\n		<div class=\"col-xs-10\">\n\n			<div>\n				<label class=\"control-label\">");
-  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.TITLE", options))));
-  data.buffer.push(":<br/>\n					");
-  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-    'type': ("text"),
-    'classBinding': (":form-control"),
-    'value': ("archive.title")
-  },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n				</label>\n			</div>\n			<div>\n				<label class=\"control-label\">");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_TITLE", options))));
   data.buffer.push(":<br/>\n					");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
@@ -251,12 +243,7 @@ function program10(depth0,data) {
   data.buffer.push(":</th>\n					<td>");
   stack1 = helpers._triageMustache.call(depth0, "model.pid", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</td>\n				</tr>\n\n\n<!--\n				<tr>\n					<th>");
-  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.TITLE", options))));
-  data.buffer.push(":</th>\n					<td>");
-  stack1 = helpers._triageMustache.call(depth0, "model.title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</td>\n				</tr>\n-->\n				<tr>\n					<th>");
+  data.buffer.push("</td>\n				</tr>\n\n\n				<tr>\n					<th>");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_TITLE", options))));
   data.buffer.push(":</th>\n					<td>");
   stack1 = helpers._triageMustache.call(depth0, "model.unittitle", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
@@ -712,14 +699,35 @@ function program2(depth0,data) {
 Ember.TEMPLATES["disks/new"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
-  var buffer = '', helper, options;
+  var buffer = '', stack1, helper, options;
   data.buffer.push("\n		<h4 class=\"alert alert-danger\">");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.ERRORS.DISK.CREATE_GENERAL", options) : helperMissing.call(depth0, "translateString", "STRINGS.ERRORS.DISK.CREATE_GENERAL", options))));
-  data.buffer.push("</h4>\n	");
+  data.buffer.push("</h4>\n		");
+  stack1 = helpers['if'].call(depth0, "errors", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n	");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = '', stack1;
+  data.buffer.push("\n		");
+  stack1 = helpers.each.call(depth0, "errors", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n		");
+  return buffer;
+  }
+function program3(depth0,data) {
+  
+  var buffer = '', stack1;
+  data.buffer.push("\n			");
+  stack1 = helpers._triageMustache.call(depth0, "message", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n		");
   return buffer;
   }
 
@@ -729,12 +737,28 @@ function program1(depth0,data) {
   stack1 = helpers['if'].call(depth0, "hasErrors", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("	\n	<div class=\"row\">\n		<div class=\"col-xs-10\">\n\n			<div>\n				<label class=\"control-label\">");
-  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.TITLE", options))));
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_TITLE", options))));
   data.buffer.push(":<br/>\n					");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
     'type': ("text"),
     'classBinding': (":form-control"),
-    'value': ("disk.title")
+    'value': ("disk.item_unittitle")
+  },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n				</label>\n			</div>\n\n			<div>\n				<label class=\"control-label\">");
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_DATE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_DATE", options))));
+  data.buffer.push(":<br/>\n					");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("text"),
+    'classBinding': (":form-control"),
+    'value': ("disk.item_unitdate")
+  },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n				</label>\n			</div>\n\n			<div>\n				<label class=\"control-label\">");
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_ID", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_ID", options))));
+  data.buffer.push(":<br/>\n					");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("text"),
+    'classBinding': (":form-control"),
+    'value': ("disk.item_unitid")
   },hashTypes:{'type': "STRING",'classBinding': "STRING",'value': "ID"},hashContexts:{'type': depth0,'classBinding': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
   data.buffer.push("\n				</label>\n			</div>\n\n			<div>\n				<label class=\"control-label\">");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.ARCHIVES", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.ARCHIVES", options))));
@@ -829,9 +853,19 @@ function program8(depth0,data) {
   stack1 = helpers._triageMustache.call(depth0, "model.pid", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>");
-  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.TITLE", options))));
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_TITLE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_TITLE", options))));
   data.buffer.push(":</th>\n					<td>");
-  stack1 = helpers._triageMustache.call(depth0, "model.title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  stack1 = helpers._triageMustache.call(depth0, "model.item_unittitle", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>");
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_DATE", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_DATE", options))));
+  data.buffer.push(":</th>\n					<td>");
+  stack1 = helpers._triageMustache.call(depth0, "model.item_unitdate", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>");
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.UNIT_ID", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.UNIT_ID", options))));
+  data.buffer.push(":</th>\n					<td>");
+  stack1 = helpers._triageMustache.call(depth0, "model.item_unitid", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</td>\n				</tr>\n				<tr>\n					<th>");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.ARCHIVES", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.ARCHIVES", options))));
