@@ -7,12 +7,10 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "header", options) : helperMissing.call(depth0, "partial", "header", options))));
   data.buffer.push("\n\n");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "menu", options) : helperMissing.call(depth0, "partial", "menu", options))));
-  data.buffer.push("\n\n<div class=\"container-fluid\">\n	<div class=\"row\">\n		<div class=\"col-xs-2\">\n			");
-  data.buffer.push(escapeExpression((helper = helpers.render || (depth0 && depth0.render),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "navtree", options) : helperMissing.call(depth0, "render", "navtree", options))));
-  data.buffer.push("\n		</div>\n		<div class=\"col-xs-10\">\n			");
+  data.buffer.push("\n\n");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n		</div>\n	</div> <!-- end row --> \n</div> <!-- end container -->\n\n\n\n");
+  data.buffer.push("\n\n");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "footer", options) : helperMissing.call(depth0, "partial", "footer", options))));
   data.buffer.push("\n\n");
   return buffer;
@@ -22,12 +20,16 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["archives"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var stack1;
+  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
+  data.buffer.push("<div class=\"container-fluid\">\n	<div class=\"row\">\n		<div class=\"col-xs-2\">\n			");
+  data.buffer.push(escapeExpression((helper = helpers.render || (depth0 && depth0.render),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "navtree", options) : helperMissing.call(depth0, "render", "navtree", options))));
+  data.buffer.push("\n		</div>\n		<div class=\"col-xs-10\">\n			");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  else { data.buffer.push(''); }
+  data.buffer.push("\n		</div>\n	</div> <!-- end row --> \n</div> <!-- end container -->\n");
+  return buffer;
   
 });
 
@@ -661,6 +663,22 @@ function program23(depth0,data) {
   data.buffer.push(">");
   data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.BUTTON.REMOVE", options) : helperMissing.call(depth0, "translateString", "STRINGS.BUTTON.REMOVE", options))));
   data.buffer.push("</button>\n		</div>\n	</div><!-- end row --> \n</div> <!-- end container --> ");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["disks"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<div class=\"container-fluid\">\n	<div class=\"row\">\n		<div class=\"col-xs-2\">\n			");
+  data.buffer.push(escapeExpression((helper = helpers.render || (depth0 && depth0.render),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "navtree", options) : helperMissing.call(depth0, "render", "navtree", options))));
+  data.buffer.push("\n		</div>\n		<div class=\"col-xs-10\">\n			");
+  stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n		</div>\n	</div> <!-- end row --> \n</div> <!-- end container -->\n");
   return buffer;
   
 });
