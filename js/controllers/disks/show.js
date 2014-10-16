@@ -13,6 +13,10 @@ App.DisksShowController = Ember.Controller.extend({
 	      	}
 
 			that.get('model').destroyRecord().then(successHandler, errorHandler);
+		},
+		openContentBrowser: function(diskImage) {
+			window.open('/tree/#'+diskImage.get('id'), '_blank');
+			return false;
 		}
 	}
 });

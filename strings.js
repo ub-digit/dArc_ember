@@ -197,6 +197,10 @@ var STRINGS = {
 		DISKS: {
 			SV: "Diskar",
 			EN: "Disks"					
+		},
+		DISK_IMAGES: {
+			SV: "Diskinneh&aring;ll",
+			EN: "Disk contents"					
 		}
 	},
 
