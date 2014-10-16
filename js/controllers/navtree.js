@@ -14,4 +14,12 @@ App.NavtreeController = Ember.Controller.extend({
 		this.set('archives', this.store.find('archive'));
 		this.set('disks', this.store.find('disk'));
 	},
+	
+	createArchive: function() {
+		this.transitionToRoute('archives.new');
+	},
+	createDisk: function() {
+		this.transitionToRoute('disks.new');
+	},
+
 });

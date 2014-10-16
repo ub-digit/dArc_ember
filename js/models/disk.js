@@ -5,4 +5,5 @@ App.Disk = DS.Model.extend({
   item_unitdate: DS.attr('string'),
   item_unitid: DS.attr('string'),
   archives: DS.hasMany('archive', {async: true})
+  diskimages: DS.hasMany('diskimage', {async: true})
 });

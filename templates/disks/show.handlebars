@@ -39,10 +39,17 @@
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.ARCHIVES}}:</th>
 					<td>
-						{{#each model.archives }}{{#link-to 'archives.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
+                        {{#each model.archives }}{{#link-to 'archives.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
 					</td>
 				</tr>							
-						
+				<tr>
+					<th>{{translateString STRINGS.FIELDS.DISK_IMAGES}}:</th>
+					<td>
+						{{#each model.diskimages}}
+						<div {{action 'openContentBrowser' this}}>{{title}} ({{id}})</div>
+						{{/each}}
+					</td>
+				</tr>
 			</table>
 		</div>
 		<div class="col-xs-2">
