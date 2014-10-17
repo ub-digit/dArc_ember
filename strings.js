@@ -167,12 +167,12 @@ var STRINGS = {
 			EN: "Abstract"					
 		},
 		EXISTING_STARTDATE: {
-			SV: "Existerande påbörjat",
-			EN: "Existing Started"					
+			SV: "Födelseår",
+			EN: "Birthyear"					
 		},
 		EXISTING_ENDDATE: {
-			SV: "Existerande avslutat",
-			EN: "Existing Ended"					
+			SV: "Dödsår",
+			EN: "Deathyear"					
 		},
 		AUTHORIZED_FORENAME: {
 			SV: "Auktoriserat förnamn",
