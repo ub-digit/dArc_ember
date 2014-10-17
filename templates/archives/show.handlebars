@@ -21,28 +21,17 @@
 					<th>{{translateString STRINGS.FIELDS.ID}}:</th>
 					<td>{{model.id}}</td>
 				</tr>
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.PID}}:</th>
-					<td>{{model.pid}}</td>
-				</tr>
-
 
 				<tr>
-					<th>{{translateString STRINGS.FIELDS.UNIT_TITLE}}:</th>
+					<th>{{translateString STRINGS.FIELDS.UNIT_TITLE.ARCHIVE}}:</th>
 					<td>{{model.unittitle}}</td>
 				</tr>
+
 				<tr>
-					<th>{{translateString STRINGS.FIELDS.UNIT_DATE}}:</th>
-					<td>{{model.unitdate}}</td>
-				</tr>
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.UNIT_ID}}:</th>
+					<th>{{translateString STRINGS.FIELDS.UNIT_ID.ARCHIVE}}:</th>
 					<td>{{model.unitid}}</td>
 				</tr>
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.ABSTRACT}}:</th>
-					<td>{{model.abstract}}</td>
-				</tr>
+
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.AUTHORITIES}}:</th>
 					<td>
@@ -55,6 +44,10 @@
 						{{#each model.disks }}{{#link-to 'disks.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
 					</td>
 				</tr>	
+				<tr>
+					<th>{{translateString STRINGS.FIELDS.ABSTRACT}}:</th>
+					<td>{{fixNewLine model.abstract.}}</td>
+				</tr>
 			</table>
 		</div>
 		<div class="col-xs-2">

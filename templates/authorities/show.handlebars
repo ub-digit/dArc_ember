@@ -23,10 +23,6 @@
 					<td>{{model.id}}</td>
 				</tr>
 				<tr>
-					<th>{{translateString STRINGS.FIELDS.PID}}:</th>
-					<td>{{model.pid}}</td>
-				</tr>				
-				<tr>
 					<th>{{translateString STRINGS.FIELDS.TITLE}}:</th>
 					<td>
 						{{#if isEditing}}
@@ -46,6 +42,26 @@
 						{{/if}}
 					</td>
 				</tr>
+				<tr>
+					<th>{{translateString STRINGS.FIELDS.AUTHORIZED_FORENAME}}:</th>
+					<td>
+						{{#if isEditing}}
+							{{input class="form-control" type="text" value=model.authorized_forename}}
+						{{else}}
+							{{model.authorized_forename}}
+						{{/if}}
+					</td>
+				</tr>
+				<tr>
+					<th>{{translateString STRINGS.FIELDS.AUTHORIZED_SURNAME}}:</th>
+					<td>
+						{{#if isEditing}}
+							{{input class="form-control" type="text" value=model.authorized_surname}}
+						{{else}}
+							{{model.authorized_surname}}
+						{{/if}}
+					</td>
+				</tr>				
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.EXISTING_STARTDATE}}:</th>
 					<td>

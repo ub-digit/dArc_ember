@@ -17,3 +17,7 @@ Ember.Handlebars.registerBoundHelper('mailToHelper', function(adress, title, opt
   mailTo += "<span>" + title + "</span></a>";
   return new Handlebars.SafeString(mailTo);
 });
+
+Ember.Handlebars.registerBoundHelper('fixNewLine', function(strObject) {  
+	return new Handlebars.SafeString(strObject.replace(/\n/g, "<br />"));
+});

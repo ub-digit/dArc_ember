@@ -147,12 +147,12 @@ var STRINGS = {
 
 	FIELDS: {
 		ID: {
-			SV: "Internt id",
-			EN: "Internal id"					
+			SV: "ID",
+			EN: "ID"					
 		},
 		PID: {
-			SV: "Pid",
-			EN: "Pid"					
+			SV: "PID",
+			EN: "PID"					
 		},
 		TITLE: {
 			SV: "Titel",
@@ -163,7 +163,7 @@ var STRINGS = {
 			EN: "Type"					
 		},
 		ABSTRACT: {
-			SV: "Sammanfattning / Abstract",
+			SV: "Abstract",
 			EN: "Abstract"					
 		},
 		EXISTING_STARTDATE: {
@@ -183,16 +183,28 @@ var STRINGS = {
 			EN: "authorized_surname"					
 		},
 		UNIT_TITLE: {
-			SV: "Beskrivning",
-			EN: "Description"					
-		},
+			ARCHIVE: {
+			    SV: "Arkivnamn",
+			    EN: "Unit Title"					
+		    },
+			DISK: {
+			    SV: "Namn",
+			    EN: "Unit Title"					
+		    }
+        },
 		UNIT_DATE: {
 			SV: "Datum",
 			EN: "Date"					
 		},
 		UNIT_ID: {
-			SV: "Identifikator",
-			EN: "Identifier"					
+			ARCHIVE: {
+			    SV: "Arkivnummer",
+			    EN: "Archive Number"					
+		    },
+			DISK: {
+			    SV: "Nummer",
+			    EN: "Unit ID"					
+		    }				
 		},		
 		AUTHORITIES: {
 			SV: "Arkivbildare",
