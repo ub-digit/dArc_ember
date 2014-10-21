@@ -33,14 +33,14 @@
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.ARCHIVES}}:</th>
 					<td>
-                        {{#each model.archives }}{{#link-to 'archives.show' id}}{{title}} ({{id}}) {{/link-to}}{{/each}}
+                        {{#each model.archives }}{{#link-to 'archives.show' id}}{{title}} ({{translateString STRINGS.FIELDS.ID}}:{{id}}){{/link-to}}{{/each}}
 					</td>
 				</tr>							
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.DISK_IMAGES}}:</th>
 					<td>
 						{{#each model.diskimages}}
-						<div {{action 'openContentBrowser' this}}>{{title}} ({{id}})</div>
+						<a {{action 'openContentBrowser' this}}>{{title}} ({{translateString STRINGS.FIELDS.ID}}:{{id}})</a>
 						{{/each}}
 					</td>
 				</tr>
