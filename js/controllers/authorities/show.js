@@ -19,6 +19,7 @@ App.AuthoritiesShowController = Ember.Controller.extend({
 
 	      	var errorHandler = function(reason) {
        			that.set('hasErrors', true);
+				that.get('model').rollback();
 	        	return false;
 	      	}
 
