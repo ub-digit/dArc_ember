@@ -18,7 +18,7 @@
 			</div>
 			<div>
 				<label class="control-label">{{translateString STRINGS.FIELDS.TYPE}}:<br/>
-					{{input type='text' classBinding=":form-control" value=model.type}}
+					{{view Ember.Select classNames="form-control" content=types optionValuePath="content.id" optionLabelPath="content.type" value=model.type}}
 				</label>
 			</div>
 			<div>

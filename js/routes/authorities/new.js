@@ -16,6 +16,7 @@ App.AuthoritiesNewRoute = Ember.Route.extend({
 		controller.set('model', model); // if you need setupController you will need this line
 		//controller.set('isEditing', false);
 	    controller.set('hasErrors', null);
+	    controller.set('types', [{type: "person", id: "person"}]);
 		
 	}
 });
