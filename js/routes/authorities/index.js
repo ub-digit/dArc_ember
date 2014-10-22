@@ -1,7 +1,18 @@
 App.AuthoritiesIndexRoute = Ember.Route.extend({
-	model: function() {
+	queryParams: {
+		page: {
+			refreshModel: true
+		},
+		query: {
+			refreshModel: true
+		}
+    },
+    model: function(params) {
 		// get your model(s) here and return it
-		return this.store.find('authority');
+		if(!params.page) {
+	    	params.page = 1;
+		}
+		return this.store.find('authority', params);
 
 	},
 	beforeModel: function() {

@@ -1,4 +1,5 @@
 App.AuthoritiesIndexController = Ember.Controller.extend({
+	queryParams: ['page', 'query'],
 	needs: "application",
 	actions: {
 		toggleIsEditing: function() {
