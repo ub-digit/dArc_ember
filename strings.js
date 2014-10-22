@@ -73,6 +73,10 @@ var STRINGS = {
 			SV: 'Skapa',
 			EN: 'Create'
 		},
+		CREATE_AUTHORITY: {
+			SV: 'Skapa auktoritet',
+			EN: 'Create authority'
+		},
 		CREATE_ARCHIVE: {
 			SV: 'Skapa arkiv',
 			EN: 'Create archive'
@@ -90,7 +94,7 @@ var STRINGS = {
 			}
 		},
 		AUTHORITY: {
-			HEADER: {
+			CREATE: {
 				SV: "Ny auktoritet",
 				EN: "New Authority"				
 			},
@@ -118,7 +122,7 @@ var STRINGS = {
 			}
 		},
 		ARCHIVE: {
-			HEADER: {
+			CREATE: {
 				SV: "Nytt arkiv",
 				EN: "New Archive"				
 			},			
@@ -134,7 +138,7 @@ var STRINGS = {
 			}
 		},
 		DISK: {
-			HEADER: {
+			CREATE: {
 				SV: "Ny disk",
 				EN: "New Disk"				
 			},			
@@ -175,12 +179,12 @@ var STRINGS = {
 			EN: "Deathyear"					
 		},
 		AUTHORIZED_FORENAME: {
-			SV: "Auktoriserat förnamn",
-			EN: "authorized_forename"					
+			SV: "Förnamn",
+			EN: "Forename"					
 		},
 		AUTHORIZED_SURNAME: {
-			SV: "Auktoriserat efternamn",
-			EN: "authorized_surname"					
+			SV: "Efternamn",
+			EN: "Surname"					
 		},
 		UNIT_TITLE: {
 			ARCHIVE: {

@@ -2,7 +2,7 @@
 	<div class="page-head">
 		<div class="row v-align">
 			<div class="col-xs-9">
-				<h1>{{translateString STRINGS.PAGES.AUTHORITY.HEADER}}</h1>
+				<h1>{{translateString STRINGS.PAGES.AUTHORITY.CREATE}}</h1>
 			</div>
 		</div> <!-- end row --> 
 	</div> <!-- end page-head --> 
@@ -11,47 +11,40 @@
 	{{/if}}	
 	<div class="row">
 		<div class="col-xs-10">
-			<table class="table table-striped">
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.TITLE}}:</th>
-					<td>
-							{{input class="form-control" type="text" value=model.title}}
-					</td>
-				</tr>
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.TYPE}}:</th>
-					<td>
-							{{input class="form-control" type="text" value=model.type}}
-					</td>
-				</tr>
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.AUTHORIZED_FORENAME}}:</th>
-					<td>
-							{{input class="form-control" type="text" value=model.authorized_forename}}
-					</td>
-				</tr>				
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.AUTHORIZED_SURNAME}}:</th>
-					<td>
-							{{input class="form-control" type="text" value=model.authorized_surname}}
-					</td>
-				</tr>			
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.EXISTING_STARTDATE}}:</th>
-					<td>
-							{{input class="form-control" type="text" value=model.startdate}}
-					</td>
-				</tr>
-				<tr>
-					<th>{{translateString STRINGS.FIELDS.EXISTING_ENDDATE}}:</th>
-					<td>
-							{{input class="form-control" type="text" value=model.enddate}}
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="col-xs-2">
-			<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveAuthority'}}>{{translateString STRINGS.BUTTON.SAVE}}</button>
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.TITLE}}:<br/>
+					{{input type='text' classBinding=":form-control" value=model.title}}
+				</label>
+			</div>
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.TYPE}}:<br/>
+					{{input type='text' classBinding=":form-control" value=model.type}}
+				</label>
+			</div>
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.AUTHORIZED_FORENAME}}:<br/>
+					{{input type='text' classBinding=":form-control" value=model.authorized_forename}}
+				</label>
+			</div>
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.AUTHORIZED_SURNAME}}:<br/>
+					{{input type='text' classBinding=":form-control" value=model.authorized_surname}}
+				</label>
+			</div>
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.EXISTING_STARTDATE}}:<br/>
+					{{input type='text' classBinding=":form-control" value=model.startdate}}
+				</label>
+			</div>
+			<div>
+				<label class="control-label">{{translateString STRINGS.FIELDS.EXISTING_ENDDATE}}:<br/>
+					{{input type='text' classBinding=":form-control" value=model.enddate}}
+				</label>
+			</div>
+
+			<div>
+				<button {{bind-attr class=":btn :btn-sm :btn-success"}} {{action 'saveAuthority'}}>{{translateString STRINGS.BUTTON.SAVE}}</button>
+			</div>
 		</div>
 	</div><!-- end row --> 
 </div>
