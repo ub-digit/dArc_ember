@@ -876,13 +876,18 @@ function program8(depth0,data) {
 
 function program10(depth0,data) {
   
-  var buffer = '', stack1;
+  var buffer = '', stack1, helper, options;
   data.buffer.push("\n						<a ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "openContentBrowser", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</a>\n						");
+  data.buffer.push(" (");
+  data.buffer.push(escapeExpression((helper = helpers.translateString || (depth0 && depth0.translateString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "STRINGS.FIELDS.ID", options) : helperMissing.call(depth0, "translateString", "STRINGS.FIELDS.ID", options))));
+  data.buffer.push(":");
+  stack1 = helpers._triageMustache.call(depth0, "id", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push(")</a>\n						");
   return buffer;
   }
 
