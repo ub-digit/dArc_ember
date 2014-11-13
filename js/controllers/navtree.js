@@ -11,7 +11,15 @@ App.NavtreeController = Ember.Controller.extend({
 
 	// Update the arrays of archives and disks
 	updateNavData: function() {
-		this.set('archives', this.store.find('archive'));
+		this.set('archives', this.store.filter('archive', {id: null}, function(item) {
+			//console.log(item.get('id')); 
+			if(!item.get('id')) { return false; }
+			//console.log("OK");
+//			if(item.get('currentState.stateName') === 'root.loaded.created.uncommitted') { return false; } 
+//			if(item.get('currentState.stateName') === 'root.empty') { return false; } 
+			return true;
+		}));
+//		this.set('archives', this.store.find('archive'));
 		this.set('disks', this.store.find('disk'));
 	},
 	

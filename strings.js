@@ -74,15 +74,15 @@ var STRINGS = {
 			EN: 'Create'
 		},
 		CREATE_AUTHORITY: {
-			SV: 'Skapa auktoritet',
+			SV: 'Ny arkivbildare',
 			EN: 'Create authority'
 		},
 		CREATE_ARCHIVE: {
-			SV: 'Skapa arkiv',
+			SV: 'Nytt arkiv',
 			EN: 'Create archive'
 		},
 		CREATE_DISK: {
-			SV: 'Skapa disk',
+			SV: 'Ny disk',
 			EN: 'Create disk'
 		}
 	},

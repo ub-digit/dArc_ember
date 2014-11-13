@@ -9,11 +9,18 @@
         <span class="icon-bar"></span>
       </button>
       {{#link-to 'index' class="navbar-brand"}} <i class="fa fa-home"></i>{{/link-to}}
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
+        <li>    
+          {{#link-to 'archives.new'}}{{translateString STRINGS.BUTTON.CREATE_ARCHIVE}}{{/link-to}}
+        </li>
+        <li>     {{#link-to 'disks.new'}}{{translateString STRINGS.BUTTON.CREATE_DISK}}{{/link-to}}
+        </li>
+        <!--
         <li>
           {{#link-to 'authorities'}}{{translateString STRINGS.MAINMENU.MENU_AUTHORITIES}}          
             <div class="active-indicator">
@@ -34,7 +41,9 @@
             </div>
           {{/link-to}}
         </li>
+        -->
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

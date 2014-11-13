@@ -6107,13 +6107,17 @@ header #brand #subheading {
   color: #000;
 }
 footer {
-  margin-top: 40px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 40px;
   background-color: #999999;
   min-height: 60px;
   color: #ffffff;
 }
 footer #footer {
-  padding: 20px;
+  padding: 10px;
 }
 footer address {
   margin: 0;
@@ -6121,6 +6125,9 @@ footer address {
 footer a {
   color: #ffffff;
   padding: 0;
+}
+body {
+  margin-bottom: 75px;
 }
 .nav.navbar-nav li {
   position: relative;

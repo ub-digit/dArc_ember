@@ -35,13 +35,13 @@
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.AUTHORITIES}}:</th>
 					<td>
-						{{#each model.authorities }}{{#link-to 'authorities.show' id}}{{title}} ({{translateString STRINGS.FIELDS.ID}}:{{id}}){{/link-to}}{{/each}}
+						{{#each model.authorities }}{{#link-to 'authorities.show' id}}{{title}}{{/link-to}}{{/each}}
 					</td>
 				</tr>							
 				<tr>
 					<th>{{translateString STRINGS.FIELDS.DISKS}}:</th>
 					<td>
-						{{#each model.disks }}{{#link-to 'disks.show' id}}{{title}} ({{translateString STRINGS.FIELDS.ID}}:{{id}}) {{/link-to}}{{/each}}
+						{{#each model.disks }}{{#link-to 'disks.show' id}}{{title}}{{/link-to}}{{/each}}
 					</td>
 				</tr>	
 				<tr>
