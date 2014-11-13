@@ -40,7 +40,7 @@
 					<th>{{translateString STRINGS.FIELDS.DISK_IMAGES}}:</th>
 					<td>
 						{{#each model.diskimages}}
-						<a {{action 'openContentBrowser' this}}>{{title}}</a>
+						<a {{action 'openContentBrowser' this}}>{{title}} ({{translateString STRINGS.FIELDS.ID}}:{{id}})</a>
 						{{/each}}
 					</td>
 				</tr>
