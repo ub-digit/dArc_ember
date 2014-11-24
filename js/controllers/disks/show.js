@@ -17,7 +17,7 @@ App.DisksShowController = Ember.Controller.extend({
 			}
 		},
 		openContentBrowser: function(diskImage) {
-			window.open('/tree/#'+diskImage.get('id'), '_blank');
+			window.open('tree/#'+diskImage.get('id'), '_blank');
 			return false;
 		}
 	}
