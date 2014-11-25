@@ -26,14 +26,25 @@
         'data' : function (obj, cb) {
           if(obj.id === '#') {
             cb.call(this, [{'id': 2, 'text': 'root', 'children': true}]);
+
+            $.ajax({
+              url: CONFIG.SERVER.URL + "/diskimages/"+root_node,
+            }).done(function( data ) {
+              var tree_nodes = [];
+              var volume_num = 1;
+              data.diskimage.volumes.sort(function(a, b) {return a.id - b.id;}).forEach(function(node) {
+                  tree_nodes.push({'id': node.id + '_' + 2, 'data': {'id': 2, 'volume': node.id}, 'text': 'Volume ' + volume_num++ + ' (' + node.id + ')', 'children': true});
+              });
+              cb.call(this, tree_nodes);
+            });
           } else {
             $.ajax({
-              url: CONFIG.SERVER.URL + "/content_file_infos/"+root_node+"/" + obj.id,
+              url: CONFIG.SERVER.URL + "/content_file_infos/"+root_node+"/"+obj.data.volume+"/" + obj.data.id,
             }).done(function( data ) {
               var tree_nodes = [];
               data.content_file_infos.forEach(function(node) {
                 if(node.class !== 'hide') {
-                  tree_nodes.push({'id': node.inode, 'data': node, 'text': node.name, 'children': node.name_type!=='r', 'icon': node.name_type==='r'?'jstree-file':'jstree-folder'});
+                  tree_nodes.push({'id': obj.data.volume + '_' + node.inode, 'data': $.extend({}, node, {'id': node.inode, 'volume': obj.data.volume}), 'text': node.name, 'children': node.name_type!=='r', 'icon': node.name_type==='r'?'jstree-file':'jstree-folder'});
                 }
               });
               cb.call(this, tree_nodes);
