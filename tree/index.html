@@ -28,6 +28,15 @@
   $(function() {
     var treeContainer = $('#tree-container');
 
+    var settings = {
+      filter: function() {
+        return {
+          showDeleted: $('#showDeleted').is(':checked'),
+          extFilter: $('#extFilter').val(),
+        };
+      },
+    };
+
     var ROOT_ID = 2;
 
     function create_tree() {
@@ -64,10 +73,7 @@
               } else {
                 $.get(
                   CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id,
-                  {
-                    showDeleted: $('#showDeleted').is(':checked'),
-                    extFilter: $('#extFilter').val(),
-                  }
+                  _(settings).result('filter')
                 ).done(function(data) {
                   cb.call(this, _(data.content_file_infos).chain()
                     .reject(function(node) { return node.class === 'hide'; })
