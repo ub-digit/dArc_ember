@@ -14,6 +14,9 @@
     <li>
       <label for="extFilter"> Extension: </label> <input type="text" id="extFilter">
     </li>
+    <li>
+      <input type="checkbox" id="sortNodes" checked="checked"><label for="sortNodes"> Sort by name </label>
+    </li>
   </ul>
   <div id="tree-container">
   </div>
@@ -29,6 +32,9 @@
     var treeContainer = $('#tree-container');
 
     var settings = {
+      sortNodes: function() {
+        return $('#sortNodes').prop('checked');
+      },
       filter: function() {
         return {
           showDeleted: $('#showDeleted').prop('checked'),
@@ -78,6 +84,11 @@
                 ).done(function(data) {
                   cb.call(this, _(data.content_file_infos).chain()
                     .reject(function(node) { return node.class === 'hide'; })
+                    .sortBy(function(node) {
+                      if(_(settings).result('sortNodes')) {
+                        return node.name;
+                      }
+                    })
                     .map(function(node) {
                       return {
                         id: obj.data.volume + '_' + node.inode,
@@ -119,6 +130,7 @@
 
     $('#showDeleted').change(recreate_tree);
     $('#extFilter').change(recreate_tree);
+    $('#sortNodes').change(recreate_tree);
 
     create_tree();
 
