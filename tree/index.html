@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="dist/themes/default/style.min.css" />
 </head>
 <body>
+  <div>
+  <input type="checkbox" id="showDeleted"> showDeleted
+  | <input type="text" id="extFilter"> ext
+  </div>
   <div id="using_json">
   </div>
 
@@ -17,6 +21,8 @@
   <script>
   $(function () {
     
+    var create_tree = function() {
+
     var root_node = window.location.hash.substr(1);
 
     if(root_node) {
@@ -39,7 +45,7 @@
             });
           } else {
             $.ajax({
-              url: CONFIG.SERVER.URL + "/content_file_infos/"+root_node+"/"+obj.data.volume+"/" + obj.data.id,
+              url: CONFIG.SERVER.URL + "/content_file_infos/"+root_node+"/"+obj.data.volume+"/" + obj.data.id + '?showDeleted=' + $('#showDeleted').is(':checked') + '&extFilter=' + $('#extFilter').val(),
             }).done(function( data ) {
               var tree_nodes = [];
               data.content_file_infos.forEach(function(node) {
@@ -57,6 +63,19 @@
       }, //grid
     });
     }
+   }
+
+    $('#showDeleted').click(function () {
+      $("#using_json").jstree('destroy');
+      create_tree();
+    });
+    $('#extFilter').click(function () {
+      $("#using_json").jstree('destroy');
+      create_tree();
+    });
+
+    create_tree();
+
   });
   </script>
 </body>
