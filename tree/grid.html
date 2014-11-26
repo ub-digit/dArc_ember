@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>dArc list</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css" />
+</head>
+<body>
+  <div>
+  <input type="checkbox" id="showDeleted"> showDeleted
+  | <input type="text" id="extFilter"> ext
+  </div>
+
+  <table id="contentTable" class="display" cellspacing="0" width="100%">
+  </table>
+  <div id="gridpager"></div> 
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
+
+  <script src="../config.js"></script>
+
+
+  <script>
+    $(document).ready(function(){
+    
+    $("#contentTable").jqGrid({
+        url: "/api/content_file_infos/117/32256",
+        datatype: "json",
+        mtype: "GET",
+        colNames: ["Filename", "Extension", "Size", "Modified"],
+        colModel: [
+            { name: "filename", width: 550 },
+            { name: "extension", width: 90 },
+            { name: "filesize", width: 90 },
+            { name: "mtime.value", width: 120, align: "right", formatter: 'date', formatoptions: { srcformat: 'Y-m-d\\TH:i:s', newformat: 'Y-m-d H:i:s' } },
+        ],
+        pager: "#gridpager",
+        rowNum: 10,
+        height: "100%",
+        rowList: [10, 20, 30],
+        sortname: "filename",
+        sortorder: "desc",
+        viewrecords: true,
+        gridview: true,
+        autoencode: true,
+        caption: "Disk contents",
+        prmNames: {rows: "per_page", extension: "extFilter"},
+        postData: {
+            'extFilter': function () { return $('#extFilter').val();},
+            'showDeleted': function () { return $('#showDeleted').is(':checked');},
+            'hideDirs': function () { return "true"; },
+        },
+        jsonReader : { 
+          root: "content_file_infos", 
+          page: "meta.pagination.page", 
+          total: "meta.pagination.pages", 
+          records: "meta.pagination.total_items", 
+          repeatitems: true, 
+          cell: "cell", 
+          id: "id",
+          userdata: "userdata",
+          subgrid: { 
+             root:"rows", 
+             repeatitems: true, 
+             cell:"cell" 
+          } 
+       },
+    }); 
+
+    $('#extFilter').change(function () {
+      $("#contentTable").trigger('reloadGrid');
+    });
+    $('#showDeleted').change(function () {
+      $("#contentTable").trigger('reloadGrid');
+    });
+
+    });
+
+  </script>
+</body>
+</html>
+
