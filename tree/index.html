@@ -124,8 +124,7 @@
     }
 
     function recreate_tree() {
-      treeContainer.jstree('destroy');
-      create_tree();
+      treeContainer.jstree('refresh');
     }
 
     $('#showDeleted').change(recreate_tree);
