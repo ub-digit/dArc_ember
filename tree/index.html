@@ -31,7 +31,7 @@
     var settings = {
       filter: function() {
         return {
-          showDeleted: $('#showDeleted').is(':checked'),
+          showDeleted: $('#showDeleted').prop('checked'),
           extFilter: $('#extFilter').val(),
         };
       },
