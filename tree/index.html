@@ -49,6 +49,49 @@
       nodeStates[jstreeData.node.id] = jstreeData.node.state;
     }
 
+    function makeVolumeCallback(cb) {
+      return function(data) {
+        cb.call(this, _(data.diskimage.volumes).chain()
+          .sortBy('id')
+          .map(function(node, index) {
+            var id = node.id + '_' + ROOT_ID;
+            return {
+              id: id,
+              data: { 'id': ROOT_ID, 'volume': node.id },
+              text: 'Volume ' + (index + 1) + ' (' + node.id + ')',
+              children: true,
+              state: nodeStates[id],
+            };
+          })
+          .value()
+        );
+      }
+    }
+    function makeInodeCallback(obj, cb) {
+      return function(data) {
+        cb.call(this, _(data.content_file_infos).chain()
+          .reject(function(node) { return node.class === 'hide'; })
+          .sortBy(function(node) {
+            if(_(settings).result('sortNodes')) {
+              return node.name;
+            }
+          })
+          .map(function(node) {
+            var id = obj.data.volume + '_' + node.inode;
+            return {
+              id: id,
+              data: $.extend({}, node, { id: node.inode, volume: obj.data.volume }),
+              text: node.name,
+              children: node.name_type !== 'r',
+              icon: node.name_type === 'r' ? 'jstree-file' : 'jstree-folder',
+              state: nodeStates[id],
+            };
+          })
+          .value()
+        );
+      }
+    }
+
     var ROOT_ID = 2;
 
     function create_tree() {
@@ -66,48 +109,12 @@
                   children: true,
                 }]);
 
-                $.get(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(function(data) {
-                  cb.call(this, _(data.diskimage.volumes).chain()
-                    .sortBy('id')
-                    .map(function(node, index) {
-                      var id = node.id + '_' + ROOT_ID;
-                      return {
-                        id: id,
-                        data: { 'id': ROOT_ID, 'volume': node.id },
-                        text: 'Volume ' + (index + 1) + ' (' + node.id + ')',
-                        children: true,
-                        state: nodeStates[id],
-                      };
-                    })
-                    .value()
-                  );
-                });
+                $.get(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(makeVolumeCallback(cb));
               } else {
                 $.get(
                   CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id,
                   _(settings).result('filter')
-                ).done(function(data) {
-                  cb.call(this, _(data.content_file_infos).chain()
-                    .reject(function(node) { return node.class === 'hide'; })
-                    .sortBy(function(node) {
-                      if(_(settings).result('sortNodes')) {
-                        return node.name;
-                      }
-                    })
-                    .map(function(node) {
-                      var id = obj.data.volume + '_' + node.inode;
-                      return {
-                        id: id,
-                        data: $.extend({}, node, { id: node.inode, volume: obj.data.volume }),
-                        text: node.name,
-                        children: node.name_type !== 'r',
-                        icon: node.name_type === 'r' ? 'jstree-file' : 'jstree-folder',
-                        state: nodeStates[id],
-                      };
-                    })
-                    .value()
-                  );
-                });
+                ).done(makeInodeCallback(obj, cb));
               }
             }
           },
