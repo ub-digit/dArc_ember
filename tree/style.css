@@ -1,0 +1,15 @@
+.filters {
+    list-style: none;
+    margin: 1em;
+    padding: 0;
+}
+
+.filters > * {
+    border-right: 1px solid;
+    display: inline;
+    padding: 0 1em;
+}
+
+.filters > *:last-child {
+    border: none;
+}
