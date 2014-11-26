@@ -61,9 +61,7 @@
                   children: true,
                 }]);
 
-                $.ajax({
-                  url: CONFIG.SERVER.URL + "/diskimages/" + disk_image,
-                }).done(function(data) {
+                $.get(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(function(data) {
                   cb.call(this, _(data.diskimage.volumes).chain()
                     .sortBy('id')
                     .map(function(node, index) {
