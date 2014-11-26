@@ -96,14 +96,13 @@
       }
     }
 
-    $('#showDeleted').click(function() {
+    function recreate_tree() {
       $("#using_json").jstree('destroy');
       create_tree();
-    });
-    $('#extFilter').click(function() {
-      $("#using_json").jstree('destroy');
-      create_tree();
-    });
+    }
+
+    $('#showDeleted').click(recreate_tree);
+    $('#extFilter').click(recreate_tree);
 
     create_tree();
 
