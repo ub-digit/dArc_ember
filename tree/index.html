@@ -28,6 +28,8 @@
   $(function() {
     var treeContainer = $('#tree-container');
 
+    var ROOT_ID = 2;
+
     function create_tree() {
       var disk_image = window.location.hash.substr(1);
 
@@ -38,7 +40,7 @@
             data: function(obj, cb) {
               if(obj.id === '#') {
                 cb.call(this, [{
-                  id: 2,
+                  id: ROOT_ID,
                   text: 'root',
                   children: true,
                 }]);
@@ -50,8 +52,8 @@
                     .sortBy('id')
                     .map(function(node, index) {
                       return {
-                        id: node.id + '_' + 2,
-                        data: { 'id': 2, 'volume': node.id },
+                        id: node.id + '_' + ROOT_ID,
+                        data: { 'id': ROOT_ID, 'volume': node.id },
                         text: 'Volume ' + (index + 1) + ' (' + node.id + ')',
                         children: true,
                       };
