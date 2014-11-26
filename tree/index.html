@@ -44,6 +44,11 @@
       },
     };
 
+    var nodeStates = {};
+    function saveNodeState(event, jstreeData) {
+      nodeStates[jstreeData.node.id] = jstreeData.node.state;
+    }
+
     var ROOT_ID = 2;
 
     function create_tree() {
@@ -65,11 +70,13 @@
                   cb.call(this, _(data.diskimage.volumes).chain()
                     .sortBy('id')
                     .map(function(node, index) {
+                      var id = node.id + '_' + ROOT_ID;
                       return {
-                        id: node.id + '_' + ROOT_ID,
+                        id: id,
                         data: { 'id': ROOT_ID, 'volume': node.id },
                         text: 'Volume ' + (index + 1) + ' (' + node.id + ')',
                         children: true,
+                        state: nodeStates[id],
                       };
                     })
                     .value()
@@ -88,12 +95,14 @@
                       }
                     })
                     .map(function(node) {
+                      var id = obj.data.volume + '_' + node.inode;
                       return {
-                        id: obj.data.volume + '_' + node.inode,
+                        id: id,
                         data: $.extend({}, node, { id: node.inode, volume: obj.data.volume }),
                         text: node.name,
                         children: node.name_type !== 'r',
                         icon: node.name_type === 'r' ? 'jstree-file' : 'jstree-folder',
+                        state: nodeStates[id],
                       };
                     })
                     .value()
@@ -117,6 +126,17 @@
               width: 300,
             }],
           },
+        });
+
+        _([
+          'open_node.jstree',
+          'close_node.jstree',
+          'enable_node.jstree',
+          'disable_node.jstree',
+          'select_node.jstree',
+          'deselect_node.jstree',
+        ]).each(function(eventName) {
+          treeContainer.on(eventName, saveNodeState);
         });
       }
     }
