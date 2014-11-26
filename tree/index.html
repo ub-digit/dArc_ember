@@ -53,9 +53,13 @@
                   );
                 });
               } else {
-                $.ajax({
-                  url: CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id + '?showDeleted=' + $('#showDeleted').is(':checked') + '&extFilter=' + $('#extFilter').val(),
-                }).done(function(data) {
+                $.get(
+                  CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id,
+                  {
+                    showDeleted: $('#showDeleted').is(':checked'),
+                    extFilter: $('#extFilter').val(),
+                  }
+                ).done(function(data) {
                   cb.call(this, _(data.content_file_infos).chain()
                     .reject(function(node) { return node.class === 'hide'; })
                     .map(function(node) {
