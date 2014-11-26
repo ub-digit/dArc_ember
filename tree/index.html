@@ -39,35 +39,36 @@
                 $.ajax({
                   url: CONFIG.SERVER.URL + "/diskimages/" + root_node,
                 }).done(function(data) {
-                  var tree_nodes = [];
-                  var volume_num = 1;
-                  data.diskimage.volumes.sort(function(a, b) { return a.id - b.id; }).forEach(function(node) {
-                    tree_nodes.push({
-                      id: node.id + '_' + 2,
-                      data: { 'id': 2, 'volume': node.id },
-                      text: 'Volume ' + volume_num++ + ' (' + node.id + ')',
-                      children: true,
-                    });
-                  });
-                  cb.call(this, tree_nodes);
+                  cb.call(this, _(data.diskimage.volumes).chain()
+                    .sortBy('id')
+                    .map(function(node, index) {
+                      return {
+                        id: node.id + '_' + 2,
+                        data: { 'id': 2, 'volume': node.id },
+                        text: 'Volume ' + (index + 1) + ' (' + node.id + ')',
+                        children: true,
+                      };
+                    })
+                    .value()
+                  );
                 });
               } else {
                 $.ajax({
                   url: CONFIG.SERVER.URL + "/content_file_infos/" + root_node + "/" + obj.data.volume + "/" + obj.data.id + '?showDeleted=' + $('#showDeleted').is(':checked') + '&extFilter=' + $('#extFilter').val(),
                 }).done(function(data) {
-                  var tree_nodes = [];
-                  data.content_file_infos.forEach(function(node) {
-                    if(node.class !== 'hide') {
-                      tree_nodes.push({
+                  cb.call(this, _(data.content_file_infos).chain()
+                    .reject(function(node) { return node.class === 'hide'; })
+                    .map(function(node) {
+                      return {
                         id: obj.data.volume + '_' + node.inode,
                         data: $.extend({}, node, { id: node.inode, volume: obj.data.volume }),
                         text: node.name,
                         children: node.name_type !== 'r',
                         icon: node.name_type === 'r' ? 'jstree-file' : 'jstree-folder',
-                      });
-                    }
-                  });
-                  cb.call(this, tree_nodes);
+                      };
+                    })
+                    .value()
+                  );
                 });
               }
             }
