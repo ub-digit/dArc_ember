@@ -22,9 +22,9 @@
   <script>
   $(function() {
     var create_tree = function() {
-      var root_node = window.location.hash.substr(1);
+      var disk_image = window.location.hash.substr(1);
 
-      if(root_node) {
+      if(disk_image) {
         $('#using_json').jstree({
           plugins: ['core','grid'],
           core: {
@@ -37,7 +37,7 @@
                 }]);
 
                 $.ajax({
-                  url: CONFIG.SERVER.URL + "/diskimages/" + root_node,
+                  url: CONFIG.SERVER.URL + "/diskimages/" + disk_image,
                 }).done(function(data) {
                   cb.call(this, _(data.diskimage.volumes).chain()
                     .sortBy('id')
@@ -54,7 +54,7 @@
                 });
               } else {
                 $.ajax({
-                  url: CONFIG.SERVER.URL + "/content_file_infos/" + root_node + "/" + obj.data.volume + "/" + obj.data.id + '?showDeleted=' + $('#showDeleted').is(':checked') + '&extFilter=' + $('#extFilter').val(),
+                  url: CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id + '?showDeleted=' + $('#showDeleted').is(':checked') + '&extFilter=' + $('#extFilter').val(),
                 }).done(function(data) {
                   cb.call(this, _(data.content_file_infos).chain()
                     .reject(function(node) { return node.class === 'hide'; })
