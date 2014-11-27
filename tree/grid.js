@@ -5,8 +5,10 @@ $(document).ready(function() {
     return window.location.hash.substr(1);
   }
 
+  var disk_image = getDiskImage();
+
   function getUrl() {
-    return CONFIG.SERVER.URL + '/content_file_infos/' + getDiskImage();
+    return CONFIG.SERVER.URL + '/content_file_infos/' + disk_image;
   }
 
   function reloadGrid(url) {
@@ -63,7 +65,8 @@ $(document).ready(function() {
   $('#diskImage').change(setHash);
 
   $(window).on('hashchange', function() {
-    $('#diskImage').val(getDiskImage());
+    disk_image = getDiskImage();
+    $('#diskImage').val(disk_image);
     reloadGrid(getUrl());
   });
 
