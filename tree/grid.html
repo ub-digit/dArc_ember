@@ -5,12 +5,17 @@
   <title>dArc list</title>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css" />
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div>
-  <input type="checkbox" id="showDeleted"> showDeleted
-  | <input type="text" id="extFilter"> ext
-  </div>
+  <ul class="controls">
+    <li>
+      <input type="checkbox" id="showDeleted"> <label for="showDeleted"> Show deleted </label>
+    </li>
+    <li>
+      <label for="extFilter"> Extension: </label> <input type="text" id="extFilter">
+    </li>
+  </ul>
 
   <table id="contentTable" class="display" cellspacing="0" width="100%">
   </table>
