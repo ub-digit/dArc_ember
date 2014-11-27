@@ -14,6 +14,9 @@ $(function() {
     },
   };
 
+  /**
+   * Construct a cached version of $.getJSON with a private cache.
+   */
   function makeCachedGet() {
     var cachedRequests = {};
     return function(url, data) {
