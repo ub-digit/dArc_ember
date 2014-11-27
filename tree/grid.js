@@ -71,8 +71,9 @@ $(document).ready(function() {
     postData: {
       volume: function() { return $('#volumeFilter').val(); },
       extFilter: function() { return $('#extFilter').val(); },
+      pathFilter: function() { return $('#pathFilter').val(); },
       posCategory: function () { return $('#posCategory').val();},
-      negCategory: function () { return 'dirdots,dir,' + $('#negCategory').val();},
+      negCategory: function () { return 'dirdots,dir,orphans,' + $('#negCategory').val();},
       showDeleted: function() { return $('#showDeleted').is(':checked'); },
       hideDirs: function() { return "false"; },
     },
@@ -87,6 +88,7 @@ $(document).ready(function() {
   });
 
   $('#extFilter').change(reloadGrid);
+  $('#pathFilter').change(reloadGrid);
   $('#showDeleted').change(reloadGrid);
   $('#volumeFilter').change(reloadGrid);
   $('#posCategory').change(reloadGrid);
