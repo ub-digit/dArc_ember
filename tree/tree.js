@@ -14,7 +14,7 @@ $(function() {
     },
   };
 
-  function cachedGetFactory() {
+  function makeCachedGet() {
     var cachedRequests = {};
     return function(url, data) {
       var requestId = url;
@@ -40,7 +40,7 @@ $(function() {
       }
     };
   }
-  var cachedGet = cachedGetFactory();
+  var cachedGet = makeCachedGet();
 
   var nodeStates = {};
   function saveNodeState(event, jstreeData) {
@@ -157,7 +157,7 @@ $(function() {
     treeContainer.jstree('close_all');
   });
   $('#clearCache').click(function() {
-    cachedGet = cachedGetFactory();
+    cachedGet = makeCachedGet();
   });
 
   create_tree();
