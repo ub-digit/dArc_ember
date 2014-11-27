@@ -152,6 +152,11 @@ $(function() {
     treeContainer.jstree('refresh');
   }
 
+  function recreate_tree() {
+    treeContainer.jstree('destroy');
+    create_tree();
+  }
+
   $('#showDeleted').change(refresh_tree);
   $('#extFilter').change(refresh_tree);
   $('#sortNodes').change(refresh_tree);
@@ -163,8 +168,7 @@ $(function() {
   });
   $('#diskImage').change(function() {
     window.location.hash = $('#diskImage').val();
-    treeContainer.jstree('destroy');
-    create_tree();
+    recreate_tree();
   });
 
   create_tree();
