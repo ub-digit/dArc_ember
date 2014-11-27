@@ -43,9 +43,9 @@ $(document).ready(function() {
     caption: "Disk contents",
     prmNames: { rows: "per_page", extension: "extFilter" },
     postData: {
-      'extFilter': function() { return $('#extFilter').val(); },
-      'showDeleted': function() { return $('#showDeleted').is(':checked'); },
-      'hideDirs': function() { return "true"; },
+      extFilter: function() { return $('#extFilter').val(); },
+      showDeleted: function() { return $('#showDeleted').is(':checked'); },
+      hideDirs: function() { return "true"; },
     },
     jsonReader : {
       root: "content_file_infos",
