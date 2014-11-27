@@ -2,7 +2,7 @@ $(document).ready(function() {
   var gridContainer = $("#contentTable");
 
   function getUrl() {
-    return '/api/content_file_infos/10/32256';
+    return CONFIG.SERVER.URL + '/content_file_infos/10/32256';
   }
 
   function reloadGrid() {
