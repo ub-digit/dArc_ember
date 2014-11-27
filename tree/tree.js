@@ -17,7 +17,7 @@ $(function() {
   /**
    * Construct a cached version of $.getJSON with a private cache.
    */
-  function makeCachedGet() {
+  function makeCachedGetJSON() {
     var cachedRequests = {};
     return function(url, data) {
       var requestId = url;
@@ -37,7 +37,7 @@ $(function() {
       }
     };
   }
-  var cachedGet = makeCachedGet();
+  var cachedGetJSON = makeCachedGetJSON();
 
   var nodeStates = {};
   function saveNodeState(event, jstreeData) {
@@ -104,9 +104,9 @@ $(function() {
                 children: true,
               }]);
 
-              cachedGet(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(makeVolumeCallback(cb));
+              cachedGetJSON(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(makeVolumeCallback(cb));
             } else {
-              cachedGet(
+              cachedGetJSON(
                 CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id,
                 _(settings).result('filter')
               ).done(makeInodeCallback(obj, cb));
@@ -154,7 +154,7 @@ $(function() {
     treeContainer.jstree('close_all');
   });
   $('#clearCache').click(function() {
-    cachedGet = makeCachedGet();
+    cachedGetJSON = makeCachedGetJSON();
   });
 
   create_tree();
