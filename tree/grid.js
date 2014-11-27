@@ -1,11 +1,17 @@
 $(document).ready(function() {
   var gridContainer = $("#contentTable");
 
-  function getUrl() {
+  function getHashParams() {
     var hashPath = window.location.hash.substr(1).split('/');
-    var disk_image = hashPath[0];
-    var volume_id = hashPath[1];
-    return CONFIG.SERVER.URL + '/content_file_infos/' + disk_image + '/' + volume_id;
+    return {
+      disk_image: hashPath[0],
+      volume_id: hashPath[1],
+    };
+  }
+
+  function getUrl() {
+    var param = getHashParams();
+    return CONFIG.SERVER.URL + '/content_file_infos/' + param.disk_image + '/' + param.volume_id;
   }
 
   function reloadGrid(url) {
