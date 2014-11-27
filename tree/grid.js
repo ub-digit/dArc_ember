@@ -1,12 +1,16 @@
 $(document).ready(function() {
   var gridContainer = $("#contentTable");
 
+  function getUrl() {
+    return '/api/content_file_infos/10/32256';
+  }
+
   function reloadGrid() {
     gridContainer.trigger('reloadGrid');
   }
 
   gridContainer.jqGrid({
-    url: "/api/content_file_infos/117/32256",
+    url: getUrl(),
     datatype: "json",
     mtype: "GET",
     colNames: ["Filename", "Extension", "Size", "Modified"],
