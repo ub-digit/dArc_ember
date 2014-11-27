@@ -148,13 +148,13 @@ $(function() {
     treeContainer.empty().append('<p>Disk image ' + disk_image + ' not found.</p>');
   }
 
-  function recreate_tree() {
+  function refresh_tree() {
     treeContainer.jstree('refresh');
   }
 
-  $('#showDeleted').change(recreate_tree);
-  $('#extFilter').change(recreate_tree);
-  $('#sortNodes').change(recreate_tree);
+  $('#showDeleted').change(refresh_tree);
+  $('#extFilter').change(refresh_tree);
+  $('#sortNodes').change(refresh_tree);
   $('#closeAll').click(function() {
     treeContainer.jstree('close_all');
   });
