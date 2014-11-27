@@ -66,7 +66,7 @@ $(document).ready(function() {
   $('#volumeFilter').change(reloadGrid);
 
   function setHash() {
-    window.location.hash = $('#diskImage').val() + '/' + $('#volumeId').val();
+    window.location.hash = $('#diskImage').val();
   }
   $('#diskImage').change(setHash);
   $(window).on('hashchange', selectDiskImage);
