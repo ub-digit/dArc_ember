@@ -16,6 +16,7 @@ $(function() {
         showDeleted: $('#showDeleted').prop('checked'),
         extFilter: $('#extFilter').val(),
         per_page: -1,
+        negCategory: 'dirdots' + ',' + $('#negCategory').val(),
       };
     },
   };

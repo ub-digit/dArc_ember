@@ -50,7 +50,7 @@ $(document).ready(function() {
     url: getUrl(),
     datatype: "json",
     mtype: "GET",
-    colNames: ["Filename", "Extension", "Size", "Modified"],
+    colNames: ["Filename", "Extension", "Size", "Modified", "Categories"],
     autowidth: true,
     shrinkToFit: true,
     colModel: [
@@ -58,11 +58,12 @@ $(document).ready(function() {
       { name: "extension", width: 90, fixed: true },
       { name: "filesize", width: 90, fixed: true },
       { name: "mtime.value", width: 120, fixed: true, align: "right", formatter: 'date', formatoptions: { srcformat: 'Y-m-d\\TH:i:s', newformat: 'Y-m-d H:i:s' } },
+      { name: "categories", width: 90 },
     ],
     pager: "#gridpager",
-    rowNum: 20,
+    rowNum: 30,
     height: "100%",
-    rowList: [10, 20, 50, 100],
+    rowList: [10, 20, 30, 40, 50, 100],
     viewrecords: true,
     gridview: true,
     caption: "Disk contents",
@@ -70,8 +71,10 @@ $(document).ready(function() {
     postData: {
       volume: function() { return $('#volumeFilter').val(); },
       extFilter: function() { return $('#extFilter').val(); },
+      posCategory: function () { return $('#posCategory').val();},
+      negCategory: function () { return $('#negCategory').val();},
       showDeleted: function() { return $('#showDeleted').is(':checked'); },
-      hideDirs: function() { return "true"; },
+      hideDirs: function() { return "false"; },
     },
     jsonReader : {
       root: "content_file_infos",
@@ -86,6 +89,8 @@ $(document).ready(function() {
   $('#extFilter').change(reloadGrid);
   $('#showDeleted').change(reloadGrid);
   $('#volumeFilter').change(reloadGrid);
+  $('#posCategory').change(reloadGrid);
+  $('#negCategory').change(reloadGrid);
 
   function setHash() {
     window.location.hash = $('#diskImage').val();
