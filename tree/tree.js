@@ -170,6 +170,10 @@ $(function() {
     window.location.hash = $('#diskImage').val();
     recreate_tree();
   });
+  $(window).on('hashchange', function() {
+    $('#diskImage').val(getDiskImage());
+    recreate_tree();
+  });
 
   create_tree();
 
