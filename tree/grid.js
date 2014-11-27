@@ -1,17 +1,12 @@
 $(document).ready(function() {
   var gridContainer = $("#contentTable");
 
-  function getHashParams() {
-    var hashPath = window.location.hash.substr(1).split('/');
-    return {
-      disk_image: hashPath[0],
-      volume_id: hashPath[1],
-    };
+  function getDiskImage() {
+    return window.location.hash.substr(1);
   }
 
   function getUrl() {
-    var param = getHashParams();
-    return CONFIG.SERVER.URL + '/content_file_infos/' + param.disk_image + '/' + param.volume_id;
+    return CONFIG.SERVER.URL + '/content_file_infos/' + getDiskImage();
   }
 
   function reloadGrid(url) {
@@ -43,6 +38,7 @@ $(document).ready(function() {
     caption: "Disk contents",
     prmNames: { rows: "per_page", extension: "extFilter" },
     postData: {
+      volume: function() { return $('#volumeFilter').val(); },
       extFilter: function() { return $('#extFilter').val(); },
       showDeleted: function() { return $('#showDeleted').is(':checked'); },
       hideDirs: function() { return "true"; },
@@ -59,17 +55,16 @@ $(document).ready(function() {
 
   $('#extFilter').change(reloadGrid);
   $('#showDeleted').change(reloadGrid);
+  $('#volumeFilter').change(reloadGrid);
 
   function setHash() {
     window.location.hash = $('#diskImage').val() + '/' + $('#volumeId').val();
   }
   $('#diskImage').change(setHash);
-  $('#volumeId').change(setHash);
 
   $(window).on('hashchange', function() {
+    $('#diskImage').val(getDiskImage());
     reloadGrid(getUrl());
-    var hashParams = getHashParams();
-    $('#diskImage').val(hashParams.disk_image);
-    $('#volumeId').val(hashParams.volume_id);
   });
+
 });
