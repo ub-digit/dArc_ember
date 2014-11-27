@@ -23,7 +23,7 @@ $(document).ready(function() {
     pager: "#gridpager",
     rowNum: 20,
     height: "100%",
-    rowList: [10, 20, 30],
+    rowList: [10, 20, 50, 100],
     viewrecords: true,
     gridview: true,
     caption: "Disk contents",
