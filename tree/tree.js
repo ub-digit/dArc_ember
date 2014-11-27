@@ -48,7 +48,7 @@ $(function() {
           var id = node.id + '_' + ROOT_ID;
           return {
             id: id,
-            data: { 'id': ROOT_ID, 'volume': node.id },
+            data: { id: ROOT_ID, volume: node.id },
             text: 'Volume ' + (index + 1) + ' (' + node.id + ')',
             children: true,
             state: nodeStates[id],
