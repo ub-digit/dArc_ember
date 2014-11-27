@@ -1,6 +1,8 @@
 $(function() {
   var treeContainer = $('#tree-container');
 
+  var ROOT_ID = 2;
+
   var settings = {
     sortNodes: function() {
       return $('#sortNodes').prop('checked');
@@ -80,8 +82,6 @@ $(function() {
       );
     };
   }
-
-  var ROOT_ID = 2;
 
   function create_tree() {
     var disk_image = window.location.hash.substr(1);
