@@ -47,6 +47,33 @@
       },
     };
 
+    var cachedGet = (function() {
+      var cachedRequests = {};
+      return function(url, data) {
+        var requestId = url;
+        if(data) {
+          requestId += '?' + $.param(data);
+        }
+
+        if(_(cachedRequests).has(requestId)) {
+          return cachedRequests[requestId].promise;
+        } else {
+          cachedRequests[requestId] = {
+            url: requestId,
+            data: data,
+            promise: $.getJSON(url, data).done(_.once(function(data, textStatus, jqXHR) {
+              _.extend(cachedRequests[requestId], {
+                data: data,
+                textStatus: textStatus,
+                jqXHR: jqXHR,
+              });
+            })),
+          };
+          return cachedRequests[requestId].promise;
+        }
+      }
+    })();
+
     var nodeStates = {};
     function saveNodeState(event, jstreeData) {
       nodeStates[jstreeData.node.id] = jstreeData.node.state;
@@ -112,9 +139,9 @@
                   children: true,
                 }]);
 
-                $.get(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(makeVolumeCallback(cb));
+                cachedGet(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(makeVolumeCallback(cb));
               } else {
-                $.get(
+                cachedGet(
                   CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id,
                   _(settings).result('filter')
                 ).done(makeInodeCallback(obj, cb));
