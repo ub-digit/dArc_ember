@@ -17,6 +17,9 @@
     <li>
       <input type="checkbox" id="sortNodes" checked="checked"><label for="sortNodes"> Sort by name </label>
     </li>
+    <li>
+      <button type="button" id="closeAll"> Close all </button>
+    </li>
   </ul>
   <div id="tree-container">
   </div>
@@ -155,6 +158,9 @@
     $('#showDeleted').change(recreate_tree);
     $('#extFilter').change(recreate_tree);
     $('#sortNodes').change(recreate_tree);
+    $('#closeAll').click(function() {
+      treeContainer.jstree('close_all');
+    });
 
     create_tree();
 
