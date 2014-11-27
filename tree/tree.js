@@ -46,6 +46,9 @@ $(function() {
 
   function makeVolumeCallback(cb) {
     return function(data) {
+      if(data.diskimage.volumes.length < 1) {
+        return notFound(getDiskImage());
+      }
       cb.call(this, _(data.diskimage.volumes).chain()
         .sortBy('id')
         .map(function(node, index) {
@@ -96,7 +99,11 @@ $(function() {
         core: {
           data: function(obj, cb) {
             if(obj.id === '#') {
-              cachedGetJSON(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(makeVolumeCallback(cb));
+              cachedGetJSON(CONFIG.SERVER.URL + "/diskimages/" + disk_image)
+                .done(makeVolumeCallback(cb))
+                .error(function(jqXHR, textStatus, errorThrown) {
+                  notFound(disk_image);
+                });
             } else {
               cachedGetJSON(
                 CONFIG.SERVER.URL + "/content_file_infos/" + disk_image + "/" + obj.data.volume + "/" + obj.data.id,
@@ -132,7 +139,13 @@ $(function() {
       ]).each(function(eventName) {
         treeContainer.on(eventName, saveNodeState);
       });
+    } else {
+      treeContainer.empty().append('<p>Please select a disk image.</p>');
     }
+  }
+
+  function notFound(disk_image) {
+    treeContainer.empty().append('<p>Disk image ' + disk_image + ' not found.</p>');
   }
 
   function recreate_tree() {
@@ -147,6 +160,11 @@ $(function() {
   });
   $('#clearCache').click(function() {
     cachedGetJSON = makeCachedGetJSON();
+  });
+  $('#diskImage').change(function() {
+    window.location.hash = $('#diskImage').val();
+    treeContainer.jstree('destroy');
+    create_tree();
   });
 
   create_tree();
