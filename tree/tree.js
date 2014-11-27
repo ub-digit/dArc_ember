@@ -18,23 +18,17 @@ $(function() {
    * Construct a cached version of $.getJSON with a private cache.
    */
   function makeCachedGetJSON() {
-    var cachedRequests = {};
+    var cachedPromises = {};
     return function(url, data) {
       var requestId = url;
       if(data) {
         requestId += '?' + $.param(data);
       }
 
-      if(_(cachedRequests).has(requestId)) {
-        return cachedRequests[requestId].promise;
-      } else {
-        cachedRequests[requestId] = {
-          url: requestId,
-          data: data,
-          promise: $.getJSON(url, data),
-        };
-        return cachedRequests[requestId].promise;
+      if(!_(cachedPromises).has(requestId)) {
+        cachedPromises[requestId] = $.getJSON(url, data);
       }
+      return cachedPromises[requestId];
     };
   }
   var cachedGetJSON = makeCachedGetJSON();
