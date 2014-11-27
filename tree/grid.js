@@ -28,7 +28,6 @@ $(document).ready(function() {
     sortorder: "desc",
     viewrecords: true,
     gridview: true,
-    autoencode: true,
     caption: "Disk contents",
     prmNames: { rows: "per_page", extension: "extFilter" },
     postData: {
@@ -42,14 +41,7 @@ $(document).ready(function() {
       total: "meta.pagination.pages",
       records: "meta.pagination.total_items",
       repeatitems: true,
-      cell: "cell",
       id: "id",
-      userdata: "userdata",
-      subgrid: {
-        root:"rows",
-        repeatitems: true,
-        cell:"cell",
-      }
     },
   });
 
