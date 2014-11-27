@@ -72,7 +72,7 @@ $(document).ready(function() {
       volume: function() { return $('#volumeFilter').val(); },
       extFilter: function() { return $('#extFilter').val(); },
       posCategory: function () { return $('#posCategory').val();},
-      negCategory: function () { return $('#negCategory').val();},
+      negCategory: function () { return 'dirdots,dir,' + $('#negCategory').val();},
       showDeleted: function() { return $('#showDeleted').is(':checked'); },
       hideDirs: function() { return "false"; },
     },
