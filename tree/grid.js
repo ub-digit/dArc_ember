@@ -11,11 +11,8 @@ $(document).ready(function() {
     $el.empty();
     $el.append($anyOption);
 
-    console.log('updateVolumeOptions disk', disk_image);
-
     $.get(CONFIG.SERVER.URL + '/diskimages/' + disk_image)
     .done(function(data) {
-      console.log('updateVolumeOptions return', data);
       _(data.diskimage.volumes).chain()
         .sortBy('id')
         .each(function(volume, index) {
