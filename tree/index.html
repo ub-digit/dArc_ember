@@ -20,6 +20,9 @@
     <li>
       <button type="button" id="closeAll"> Close all </button>
     </li>
+    <li>
+      <button type="button" id="clearCache"> Clear cache </button>
+    </li>
   </ul>
   <div id="tree-container">
   </div>
@@ -188,6 +191,9 @@
     $('#sortNodes').change(recreate_tree);
     $('#closeAll').click(function() {
       treeContainer.jstree('close_all');
+    });
+    $('#clearCache').click(function() {
+      cachedGet = cachedGetFactory();
     });
 
     create_tree();
