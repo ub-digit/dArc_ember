@@ -3,6 +3,10 @@ $(function() {
 
   var ROOT_ID = 2;
 
+  function getDiskImage() {
+    return window.location.hash.substr(1);
+  }
+
   var settings = {
     sortNodes: function() {
       return $('#sortNodes').prop('checked');
@@ -84,7 +88,7 @@ $(function() {
   }
 
   function create_tree() {
-    var disk_image = window.location.hash.substr(1);
+    var disk_image = getDiskImage();
 
     if(disk_image) {
       treeContainer.jstree({
