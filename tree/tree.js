@@ -31,13 +31,7 @@ $(function() {
         cachedRequests[requestId] = {
           url: requestId,
           data: data,
-          promise: $.getJSON(url, data).done(_.once(function(data, textStatus, jqXHR) {
-            _.extend(cachedRequests[requestId], {
-              data: data,
-              textStatus: textStatus,
-              jqXHR: jqXHR,
-            });
-          })),
+          promise: $.getJSON(url, data),
         };
         return cachedRequests[requestId].promise;
       }
