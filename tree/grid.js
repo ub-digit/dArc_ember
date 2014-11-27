@@ -1,6 +1,10 @@
 $(document).ready(function() {
   var gridContainer = $("#contentTable");
 
+  function reloadGrid() {
+    gridContainer.trigger('reloadGrid');
+  }
+
   gridContainer.jqGrid({
     url: "/api/content_file_infos/117/32256",
     datatype: "json",
@@ -45,10 +49,6 @@ $(document).ready(function() {
     },
   });
 
-  $('#extFilter').change(function () {
-    gridContainer.trigger('reloadGrid');
-  });
-  $('#showDeleted').change(function () {
-    gridContainer.trigger('reloadGrid');
-  });
+  $('#extFilter').change(reloadGrid);
+  $('#showDeleted').change(reloadGrid);
 });
