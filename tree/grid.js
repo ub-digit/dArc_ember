@@ -60,7 +60,16 @@ $(document).ready(function() {
   $('#extFilter').change(reloadGrid);
   $('#showDeleted').change(reloadGrid);
 
+  function setHash() {
+    window.location.hash = $('#diskImage').val() + '/' + $('#volumeId').val();
+  }
+  $('#diskImage').change(setHash);
+  $('#volumeId').change(setHash);
+
   $(window).on('hashchange', function() {
     reloadGrid(getUrl());
+    var hashParams = getHashParams();
+    $('#diskImage').val(hashParams.disk_image);
+    $('#volumeId').val(hashParams.volume_id);
   });
 });
