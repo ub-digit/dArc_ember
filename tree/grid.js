@@ -21,7 +21,7 @@ $(document).ready(function() {
       { name: "mtime.value", width: 120, align: "right", formatter: 'date', formatoptions: { srcformat: 'Y-m-d\\TH:i:s', newformat: 'Y-m-d H:i:s' } },
     ],
     pager: "#gridpager",
-    rowNum: 10,
+    rowNum: 20,
     height: "100%",
     rowList: [10, 20, 30],
     viewrecords: true,
