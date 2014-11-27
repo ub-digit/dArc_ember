@@ -50,11 +50,12 @@ $(document).ready(function() {
     url: getUrl(),
     datatype: "json",
     mtype: "GET",
-    colNames: ["Filename", "Extension", "Size", "Modified", "Categories"],
+    colNames: ["Path", "Filename", "Extension", "Size", "Modified", "Categories"],
     autowidth: true,
     shrinkToFit: true,
     colModel: [
       { name: "filename", width: 550 },
+      { name: "name", width: 90 },
       { name: "extension", width: 90, fixed: true },
       { name: "filesize", width: 90, fixed: true },
       { name: "mtime.value", width: 120, fixed: true, align: "right", formatter: 'date', formatoptions: { srcformat: 'Y-m-d\\TH:i:s', newformat: 'Y-m-d H:i:s' } },
@@ -67,7 +68,7 @@ $(document).ready(function() {
     viewrecords: true,
     gridview: true,
     caption: "Disk contents",
-    prmNames: { rows: "per_page", extension: "extFilter" },
+    prmNames: { rows: "per_page", extension: "extFilter", sort: "sortField", order: "sortOrder" },
     postData: {
       volume: function() { return $('#volumeFilter').val(); },
       extFilter: function() { return $('#extFilter').val(); },
