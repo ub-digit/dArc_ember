@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  $("#contentTable").jqGrid({
+  var gridContainer = $("#contentTable");
+
+  gridContainer.jqGrid({
     url: "/api/content_file_infos/117/32256",
     datatype: "json",
     mtype: "GET",
@@ -44,9 +46,9 @@ $(document).ready(function() {
   });
 
   $('#extFilter').change(function () {
-    $("#contentTable").trigger('reloadGrid');
+    gridContainer.trigger('reloadGrid');
   });
   $('#showDeleted').change(function () {
-    $("#contentTable").trigger('reloadGrid');
+    gridContainer.trigger('reloadGrid');
   });
 });
