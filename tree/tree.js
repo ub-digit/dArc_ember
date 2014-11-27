@@ -92,12 +92,6 @@ $(function() {
         core: {
           data: function(obj, cb) {
             if(obj.id === '#') {
-              cb.call(this, [{
-                id: ROOT_ID,
-                text: 'root',
-                children: true,
-              }]);
-
               cachedGetJSON(CONFIG.SERVER.URL + "/diskimages/" + disk_image).done(makeVolumeCallback(cb));
             } else {
               cachedGetJSON(
