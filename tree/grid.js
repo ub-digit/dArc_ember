@@ -24,8 +24,6 @@ $(document).ready(function() {
     rowNum: 10,
     height: "100%",
     rowList: [10, 20, 30],
-    sortname: "filename",
-    sortorder: "desc",
     viewrecords: true,
     gridview: true,
     caption: "Disk contents",
