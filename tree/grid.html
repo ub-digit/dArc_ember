@@ -21,32 +21,32 @@
   <script src="grid.js"></script>
 </head>
 <body>
-  <ul class="controls">
-    <li>
+  <div class="controls">
+    <div>
       <label for="diskImage"> Disk image: </label> <input type="text" id="diskImage" size="8">
-    </li>
-    <li>
+    </div>
+    <div>
       <label for="volumeFilter"> Volume: </label>
       <select id="volumeFilter">
         <option value=""> Any </option>
       </select>
-    </li>
-    <li>
+    </div>
+    <div>
       <input type="checkbox" id="showDeleted"> <label for="showDeleted"> Show deleted </label>
-    </li>
-    <li>
+    </div>
+    <div>
       <label for="extFilter"> Extension: </label> <input type="text" id="extFilter">
-    </li>
-    <li>
+    </div>
+    <div>
       <label for="pathFilter"> Path: </label> <input type="text" id="pathFilter">
-    </li>
-    <li>
+    </div>
+    <div>
       <label for="posMultiCategory"> +cat: </label> <select id="posMultiCategory" name="posMultiCategory" multiple="multiple"></select><input type="hidden" id="posCategory">
-    </li>
-    <li>
+    </div>
+    <div>
       <label for="negCategory"> -cat: </label> <input type="text" id="negCategory">
-    </li>
-  </ul>
+    </div>
+  </div>
 
   <table id="contentTable" class="display" cellspacing="0" width="100%">
   </table>
