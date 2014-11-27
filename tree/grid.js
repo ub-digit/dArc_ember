@@ -7,6 +7,12 @@ $(document).ready(function() {
 
   var disk_image = getDiskImage();
 
+  function selectDiskImage() {
+    disk_image = getDiskImage();
+    $('#diskImage').val(disk_image);
+    reloadGrid(getUrl());
+  }
+
   function getUrl() {
     return CONFIG.SERVER.URL + '/content_file_infos/' + disk_image;
   }
@@ -63,11 +69,6 @@ $(document).ready(function() {
     window.location.hash = $('#diskImage').val() + '/' + $('#volumeId').val();
   }
   $('#diskImage').change(setHash);
-
-  $(window).on('hashchange', function() {
-    disk_image = getDiskImage();
-    $('#diskImage').val(disk_image);
-    reloadGrid(getUrl());
-  });
+  $(window).on('hashchange', selectDiskImage);
 
 });
