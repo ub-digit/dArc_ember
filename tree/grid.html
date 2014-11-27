@@ -9,7 +9,9 @@
 <body>
   <div>
   <input type="checkbox" id="showDeleted"> showDeleted
-  | <input type="text" id="extFilter"> ext
+  | ext: <input type="text" id="extFilter">
+  | +cat: <input type="text" id="posCategory">
+  | -cat: <input type="text" id="negCategory">
   </div>
 
   <table id="contentTable" class="display" cellspacing="0" width="100%">
@@ -27,20 +29,21 @@
   <script>
   $(document).ready(function() {
     $("#contentTable").jqGrid({
-      url: "/api/content_file_infos/117/32256",
+      url: "/api/content_file_infos/4712",
       datatype: "json",
       mtype: "GET",
-      colNames: ["Filename", "Extension", "Size", "Modified"],
+      colNames: ["Filename", "Extension", "Size", "Modified", "Categories"],
       colModel: [
         { name: "filename", width: 550 },
         { name: "extension", width: 90 },
         { name: "filesize", width: 90 },
         { name: "mtime.value", width: 120, align: "right", formatter: 'date', formatoptions: { srcformat: 'Y-m-d\\TH:i:s', newformat: 'Y-m-d H:i:s' } },
+        { name: "categories", width: 90 },
       ],
       pager: "#gridpager",
-      rowNum: 10,
+      rowNum: 30,
       height: "100%",
-      rowList: [10, 20, 30],
+      rowList: [10, 20, 30, 40, 50],
       sortname: "filename",
       sortorder: "desc",
       viewrecords: true,
@@ -50,8 +53,10 @@
       prmNames: { rows: "per_page", extension: "extFilter" },
       postData: {
         'extFilter': function() { return $('#extFilter').val(); },
+        'posCategory': function () { return $('#posCategory').val();},
+        'negCategory': function () { return $('#negCategory').val();},
         'showDeleted': function() { return $('#showDeleted').is(':checked'); },
-        'hideDirs': function() { return "true"; },
+        'hideDirs': function() { return "false"; },
       },
       jsonReader : {
         root: "content_file_infos",
@@ -71,6 +76,12 @@
     }); 
 
     $('#extFilter').change(function () {
+      $("#contentTable").trigger('reloadGrid');
+    });
+    $('#posCategory').change(function () {
+      $("#contentTable").trigger('reloadGrid');
+    });
+    $('#negCategory').change(function () {
       $("#contentTable").trigger('reloadGrid');
     });
     $('#showDeleted').change(function () {
