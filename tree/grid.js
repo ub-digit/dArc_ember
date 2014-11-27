@@ -5,12 +5,31 @@ $(document).ready(function() {
     return window.location.hash.substr(1);
   }
 
-  var disk_image = getDiskImage();
+  function updateVolumeOptions() {
+    var $el = $('#volumeFilter');
+    var $anyOption = $el.find('[value=""]').detach();
+    $el.empty();
+    $el.append($anyOption);
+
+    console.log('updateVolumeOptions disk', disk_image);
+
+    $.get(CONFIG.SERVER.URL + '/diskimages/' + disk_image)
+    .done(function(data) {
+      console.log('updateVolumeOptions return', data);
+      _(data.diskimage.volumes).chain()
+        .sortBy('id')
+        .each(function(volume, index) {
+          $el.append('<option value="' + volume.id + '">' + (index + 1) + '</option>');
+        });
+    });
+  }
 
   function selectDiskImage() {
     disk_image = getDiskImage();
     $('#diskImage').val(disk_image);
     reloadGrid(getUrl());
+
+    updateVolumeOptions();
   }
 
   function getUrl() {
@@ -23,6 +42,9 @@ $(document).ready(function() {
     }
     gridContainer.trigger('reloadGrid');
   }
+
+  var disk_image;
+  selectDiskImage();
 
   gridContainer.jqGrid({
     url: getUrl(),
