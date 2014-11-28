@@ -19,3 +19,7 @@
 .controls > *:last-child {
     border: none;
 }
+
+.ui-multiselect {
+    font-size: 0.9em;
+}
