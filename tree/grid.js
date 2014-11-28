@@ -200,7 +200,7 @@ $(document).ready(function() {
     }
 
     $(el).multiselect({
-        noneSelectedText: 'Select categories',
+        noneSelectedText: $(el).clone().children().remove().end().text() || 'Select categories',
         selectedList: 4,
         click: dirtify,
         checkAll: dirtify,
