@@ -123,6 +123,28 @@ $(document).ready(function() {
     return namesToGetters;
   }
 
+  function updateDynamicMultiselects(data) {
+    $('.category-multiselect-dynamic').each(function(index, el) {
+      var $el = $(el);
+      var categories = _(data.meta.all_categories).chain()
+        .reject(HIDE_CATEGORY_PREDICATE)
+        .sortBy(_.identity)
+        .value();
+
+      $el.find('option').each(function(i, opt) {
+        if(!_(categories).contains($(opt).val())) {
+          $(opt).remove();
+        }
+        // removes value from the categories array
+        categories.splice($.inArray($(opt).val(), categories), 1);
+      });
+      _(categories).each(function(cat) {
+        $el.append($("<option></option>").attr("value",cat).text(cat));
+      });
+      $el.multiselect('refresh');
+    });
+  }
+
   selectDiskImage();
 
 
@@ -167,27 +189,7 @@ $(document).ready(function() {
       repeatitems: true,
       id: "id",
     },
-    loadComplete: function(data) {
-      $('.category-multiselect-dynamic').each(function(index, el) {
-        var $el = $(el);
-        var categories = _(data.meta.all_categories).chain()
-          .reject(HIDE_CATEGORY_PREDICATE)
-          .sortBy(_.identity)
-          .value();
-
-        $el.find('option').each(function(i, opt) {
-          if(!_(categories).contains($(opt).val())) {
-            $(opt).remove();
-          }
-          // removes value from the categories array
-          categories.splice($.inArray($(opt).val(), categories), 1);
-        });
-        _(categories).each(function(cat) {
-          $el.append($("<option></option>").attr("value",cat).text(cat));
-        });
-        $el.multiselect('refresh');
-      });
-    },
+    loadComplete: updateDynamicMultiselects,
   });
 
   $controlsForm.change(reloadGrid);
