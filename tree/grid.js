@@ -159,18 +159,16 @@ $(document).ready(function() {
 
   $('.category-multiselect').each(function(index, el) {
     var isDirty = false;
+    function dirtify() {
+      isDirty = true;
+    }
+
     $(el).multiselect({
         noneSelectedText: 'Select categories',
         selectedList: 4,
-        click: function() {
-           isDirty = true;
-        },
-        checkAll: function() {
-           isDirty = true;
-        },
-        uncheckAll: function() {
-           isDirty = true;
-        },
+        click: dirtify,
+        checkAll: dirtify,
+        uncheckAll: dirtify,
         beforeclose: function() {
           if(isDirty) {
             reloadGrid();
