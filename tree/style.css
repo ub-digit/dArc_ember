@@ -11,9 +11,8 @@
 }
 
 .controls > * {
-    border-right: 1px solid;
     display: inline;
-    padding: 0 1em;
+    padding: 0 0.5em;
 }
 
 .controls > *:last-child {
