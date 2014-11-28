@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   var PARAM_TRANSFORMERS = {
     hideDirs: _.constant('false'),
-    negCategory: function(original) { return 'sys/dirdots,sys/dir,sys/orphans,' + original; },
+    negCategory: function(original) { return 'sys/dirdots,' + $('#negExtraCategory').val() + ',' + original; },
   };
 
   var disk_image;
@@ -112,6 +112,11 @@ $(document).ready(function() {
 
   selectDiskImage();
 
+
+  $.each({'Hide deleted': 'sys/deleted', 'Hide FS': 'sys/fs', 'Hide directories': 'sys/dir', 'Hide orphans': 'sys/orphans'}, function(text, value) {
+    $('#negExtraCategory').append($("<option></option>").attr("selected","selected").attr("value",value).text(text));
+  });
+
   gridContainer.jqGrid({
     url: getUrl(),
     datatype: "json",
@@ -145,7 +150,7 @@ $(document).ready(function() {
       id: "id",
     },
     loadComplete: function(data) {
-      $('.category-multiselect').each(function(index, el) {
+      $('.category-multiselect-dynamic').each(function(index, el) {
         var $el = $(el);
         var categories = _(data.meta.all_categories).chain()
           .reject(HIDE_CATEGORY_PREDICATE)

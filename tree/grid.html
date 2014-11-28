@@ -34,21 +34,22 @@
         </select>
       </div>
       <div>
-        <input type="checkbox" id="showDeleted" name="showDeleted" /> <label for="showDeleted"> Show deleted </label>
-      </div>
-      <div>
         <label for="extFilter"> Extension: </label> <input type="text" id="extFilter" name="extFilter" />
       </div>
       <div>
         <label for="pathFilter"> Path: </label> <input type="text" id="pathFilter" name="pathFilter" />
       </div>
       <div>
-        <label for="posMultiCategory"> +cat: </label>
-        <select class="category-multiselect" name="posCategory" multiple="multiple"></select>
+        <label for="posCategory">+</label>
+        <select class="category-multiselect category-multiselect-dynamic" name="posCategory" multiple="multiple"></select>
       </div>
       <div>
-        <label for="negCategory"> -cat: </label>
-        <select class="category-multiselect" name="negCategory" multiple="multiple"></select>
+        <label for="negCategory">-</label>
+        <select class="category-multiselect category-multiselect-dynamic" name="negCategory" multiple="multiple"></select>
+      </div>
+      <div>
+        <label for="negExtraCategory">X</label>
+        <select class="category-multiselect" id="negExtraCategory" name="negExtraCategory" multiple="multiple"></select>
       </div>
     </form>
   </div>
