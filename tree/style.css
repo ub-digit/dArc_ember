@@ -25,7 +25,7 @@
     border: none;
 }
 
-.ui-multiselect {
+.ui-multiselect, .ui-multiselect-menu {
     font-size: 0.9em;
 }
 
