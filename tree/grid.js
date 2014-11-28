@@ -133,8 +133,15 @@ $(document).ready(function() {
       id: "id",
     },
     loadComplete: function(data) {
-      $('#posMultiCategory').find('option').remove();
-      _(data.meta.all_categories).each(function(cat) {
+      categories = $(data.meta.all_categories);
+      $('#posMultiCategory').find('option').each(function(i,opt){
+        if($.inArray($(opt).val(), $(categories)) == -1) {
+          $(opt).remove();
+        }
+        // removes value from the categories array
+        categories.splice( $.inArray($(opt).val(), categories), 1 );
+      });
+      categories.each(function(i,cat) {
         $("#posMultiCategory").append($("<option></option>").attr("value",cat).text(cat)); 
       });
       $("#posMultiCategory").multiselect('refresh');
