@@ -15,7 +15,7 @@ $(function() {
       return {
         extFilter: $('#extFilter').val(),
         per_page: -1,
-        negCategory: 'sys/dirdots,' + ($('#showDeleted').prop('checked') ? 'sys/deleted' : ''),
+        negCategory: 'sys/dirdots,' + ($('#showDeleted').prop('checked') ? '' : 'sys/deleted'),
       };
     },
   };
