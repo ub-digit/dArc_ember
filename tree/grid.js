@@ -1,6 +1,13 @@
 $(document).ready(function() {
   var gridContainer = $("#contentTable");
 
+  var controlsForm = $('form.controls');
+
+  var PARAM_TRANSFORMERS = {
+    hideDirs: _.constant('false'),
+    negCategory: function(original) { return 'sys/dirdots,sys/dir,sys/orphans,' + original; },
+  };
+
   function getDiskImage() {
     return window.location.hash.substr(1);
   }
@@ -40,6 +47,48 @@ $(document).ready(function() {
     gridContainer.trigger('reloadGrid');
   }
 
+  function getFilterParamFrom($el) {
+    if($el.attr('type') === 'checkbox') {
+      return $el.prop('checked');
+    } else {
+      return $el.val();
+    }
+  }
+
+  function makeFilterGetters() {
+    var namesAndGetters = controlsForm.find('input, select').map(function(index, el) {
+      var $el = $(el);
+      return {
+        name: $el.attr('name'),
+        getter: _.partial(getFilterParamFrom, $el),
+      };
+    });
+
+    var namesToGetters = _.reduce(
+      namesAndGetters,
+      function(getters, nameAndGetter) {
+        getters[nameAndGetter.name] = nameAndGetter.getter;
+        return getters;
+      },
+      {}
+    );
+
+    namesToGetters = _.reduce(
+      PARAM_TRANSFORMERS,
+      function(getters, transformer, paramName) {
+        if(_(getters).has(paramName)) {
+          getters[paramName] = _.compose(transformer, getters[paramName]);
+        } else {
+          getters[paramName] = _.partial(transformer, '');
+        }
+        return getters;
+      },
+      namesToGetters
+    );
+
+    return namesToGetters;
+  }
+
   var disk_image;
   selectDiskImage();
 
@@ -66,15 +115,7 @@ $(document).ready(function() {
     gridview: true,
     caption: "Disk contents",
     prmNames: { rows: "per_page", extension: "extFilter", sort: "sortField", order: "sortOrder" },
-    postData: {
-      volume: function() { return $('#volumeFilter').val(); },
-      extFilter: function() { return $('#extFilter').val(); },
-      pathFilter: function() { return $('#pathFilter').val(); },
-      posCategory: function () { return $('#posCategory').val();},
-      negCategory: function () { return 'sys/dirdots,sys/dir,sys/orphans,' + $('#negCategory').val();},
-      showDeleted: function() { return $('#showDeleted').is(':checked'); },
-      hideDirs: function() { return "false"; },
-    },
+    postData: makeFilterGetters(),
     jsonReader : {
       root: "content_file_infos",
       page: "meta.pagination.page",
@@ -94,12 +135,7 @@ $(document).ready(function() {
     },
   });
 
-  $('#extFilter').change(reloadGrid);
-  $('#pathFilter').change(reloadGrid);
-  $('#showDeleted').change(reloadGrid);
-  $('#volumeFilter').change(reloadGrid);
-  $('#posCategory').change(reloadGrid);
-  $('#negCategory').change(reloadGrid);
+  controlsForm.change(reloadGrid);
 
   function setHash() {
     window.location.hash = $('#diskImage').val();
@@ -125,6 +161,9 @@ $(document).ready(function() {
         if(doSubmit) reloadGrid();
         return true;
      }
-   });
+  }).change(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+  });
 
 });

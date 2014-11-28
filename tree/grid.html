@@ -29,24 +29,25 @@
     <form class="controls">
       <div>
         <label for="volumeFilter"> Volume: </label>
-        <select id="volumeFilter">
+        <select id="volumeFilter" name="volume">
           <option value=""> Any </option>
         </select>
       </div>
       <div>
-        <input type="checkbox" id="showDeleted" /> <label for="showDeleted"> Show deleted </label>
+        <input type="checkbox" id="showDeleted" name="showDeleted" /> <label for="showDeleted"> Show deleted </label>
       </div>
       <div>
-        <label for="extFilter"> Extension: </label> <input type="text" id="extFilter" />
+        <label for="extFilter"> Extension: </label> <input type="text" id="extFilter" name="extFilter" />
       </div>
       <div>
-        <label for="pathFilter"> Path: </label> <input type="text" id="pathFilter" />
+        <label for="pathFilter"> Path: </label> <input type="text" id="pathFilter" name="pathFilter" />
       </div>
       <div>
-        <label for="posMultiCategory"> +cat: </label> <select id="posMultiCategory" name="posMultiCategory" multiple="multiple"></select><input type="hidden" id="posCategory" />
+        <label for="posMultiCategory"> +cat: </label> <select id="posMultiCategory" name="posCategory" multiple="multiple"></select><input type="hidden" id="posCategory" />
       </div>
       <div>
-        <label for="negCategory"> -cat: </label> <input type="text" id="negCategory" />
+        <label for="negCategory"> -cat: </label>
+        <input type="text" id="negCategory" name="negCategory" />
       </div>
     </form>
   </div>
