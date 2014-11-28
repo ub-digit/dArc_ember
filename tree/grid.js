@@ -3,6 +3,14 @@ $(document).ready(function() {
 
   var controlsForm = $('form.controls');
 
+  function strStartsWith(haystack, needle) {
+    return haystack.lastIndexOf(needle, 0) === 0;
+  }
+
+  function HIDE_CATEGORY_PREDICATE(category) {
+    return strStartsWith(category, 'sys/');
+  }
+
   var PARAM_TRANSFORMERS = {
     hideDirs: _.constant('false'),
     negCategory: function(original) { return 'sys/dirdots,sys/dir,sys/orphans,' + original; },
@@ -135,7 +143,10 @@ $(document).ready(function() {
     loadComplete: function(data) {
       $('.category-multiselect').each(function(index, el) {
         var $el = $(el);
-        var categories = _(data.meta.all_categories).sortBy(_.identity);
+        var categories = _(data.meta.all_categories).chain()
+          .reject(HIDE_CATEGORY_PREDICATE)
+          .sortBy(_.identity)
+          .value();
 
         $el.find('option').each(function(i, opt) {
           if(!_(categories).contains($(opt).val())) {
