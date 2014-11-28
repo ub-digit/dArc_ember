@@ -124,7 +124,12 @@ $(document).ready(function() {
   selectDiskImage();
 
 
-  $.each({'Hide deleted': 'sys/deleted', 'Hide FS': 'sys/fs', 'Hide directories': 'sys/dir', 'Hide orphans': 'sys/orphans'}, function(text, value) {
+  $.each({
+    'Hide deleted': 'sys/deleted',
+    'Hide FS': 'sys/fs',
+    'Hide directories': 'sys/dir',
+    'Hide orphans': 'sys/orphans',
+  }, function(text, value) {
     $('#negExtraCategory').append($("<option></option>").attr("selected","selected").attr("value",value).text(text));
   });
 
