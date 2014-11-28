@@ -153,9 +153,6 @@ $(document).ready(function() {
          isDirty=true;
       },
       beforeclose: function(){
-        if($("#posMultiCategory").val()) {
-          $("#posCategory").val($("#posMultiCategory").val().join(','))
-        }
 
         doSubmit=false;
         if(isDirty) doSubmit=true;
