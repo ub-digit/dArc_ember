@@ -133,19 +133,21 @@ $(document).ready(function() {
       id: "id",
     },
     loadComplete: function(data) {
-      var $el = $('#posMultiCategory');
-      categories = $(data.meta.all_categories);
-      $el.find('option').each(function(i,opt){
-        if($.inArray($(opt).val(), $(categories)) == -1) {
-          $(opt).remove();
-        }
-        // removes value from the categories array
-        categories.splice( $.inArray($(opt).val(), categories), 1 );
+      $('.category-multiselect').each(function(index, el) {
+        var $el = $(el);
+        categories = $(data.meta.all_categories);
+        $el.find('option').each(function(i,opt){
+          if($.inArray($(opt).val(), $(categories)) == -1) {
+            $(opt).remove();
+          }
+          // removes value from the categories array
+          categories.splice( $.inArray($(opt).val(), categories), 1 );
+        });
+        categories.each(function(i,cat) {
+          $el.append($("<option></option>").attr("value",cat).text(cat));
+        });
+        $el.multiselect('refresh');
       });
-      categories.each(function(i,cat) {
-        $el.append($("<option></option>").attr("value",cat).text(cat));
-      });
-      $el.multiselect('refresh');
     },
   });
 
@@ -154,7 +156,7 @@ $(document).ready(function() {
   $('#diskImage').change(setHash);
   $(window).on('hashchange', selectDiskImage);
 
-  $("#posMultiCategory").each(function(index, el) {
+  $('.category-multiselect').each(function(index, el) {
     var isDirty = false;
     $(el).multiselect({
         noneSelectedText: 'Select categories',
