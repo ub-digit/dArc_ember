@@ -58,6 +58,8 @@ $(document).ready(function() {
   function getFilterParamFrom($el) {
     if($el.attr('type') === 'checkbox') {
       return $el.prop('checked');
+    } else if ($el.prop('multiple') && _.isNull($el.val())) {
+      return '';
     }
     return $el.val();
   }
