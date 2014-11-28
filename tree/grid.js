@@ -10,8 +10,31 @@ $(document).ready(function() {
 
   var disk_image;
 
+  function getUrl() {
+    return CONFIG.SERVER.URL + '/content_file_infos/' + disk_image;
+  }
+
+  function setHash() {
+    window.location.hash = $('#diskImage').val();
+  }
+
   function getDiskImage() {
     return window.location.hash.substr(1);
+  }
+
+  function selectDiskImage() {
+    disk_image = getDiskImage();
+    $('#diskImage').val(disk_image);
+    reloadGrid(getUrl());
+
+    updateVolumeOptions();
+  }
+
+  function reloadGrid(url) {
+    if(_(url).isString()) {
+      gridContainer.jqGrid('setGridParam', { url: url });
+    }
+    gridContainer.trigger('reloadGrid');
   }
 
   function updateVolumeOptions() {
@@ -28,25 +51,6 @@ $(document).ready(function() {
           $el.append('<option value="' + volume.id + '">' + (index + 1) + '</option>');
         });
     });
-  }
-
-  function selectDiskImage() {
-    disk_image = getDiskImage();
-    $('#diskImage').val(disk_image);
-    reloadGrid(getUrl());
-
-    updateVolumeOptions();
-  }
-
-  function getUrl() {
-    return CONFIG.SERVER.URL + '/content_file_infos/' + disk_image;
-  }
-
-  function reloadGrid(url) {
-    if(_(url).isString()) {
-      gridContainer.jqGrid('setGridParam', { url: url });
-    }
-    gridContainer.trigger('reloadGrid');
   }
 
   function getFilterParamFrom($el) {
@@ -138,9 +142,6 @@ $(document).ready(function() {
 
   controlsForm.change(reloadGrid);
 
-  function setHash() {
-    window.location.hash = $('#diskImage').val();
-  }
   $('#diskImage').change(setHash);
   $(window).on('hashchange', selectDiskImage);
 
