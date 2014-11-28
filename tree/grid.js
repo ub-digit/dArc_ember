@@ -136,12 +136,12 @@ $(document).ready(function() {
       $('.category-multiselect').each(function(index, el) {
         var $el = $(el);
         var categories = $(data.meta.all_categories);
-        $el.find('option').each(function(i,opt){
+        $el.find('option').each(function(i, opt) {
           if($.inArray($(opt).val(), categories) == -1) {
             $(opt).remove();
           }
           // removes value from the categories array
-          categories.splice( $.inArray($(opt).val(), categories), 1 );
+          categories.splice($.inArray($(opt).val(), categories), 1);
         });
         categories.each(function(i,cat) {
           $el.append($("<option></option>").attr("value",cat).text(cat));
