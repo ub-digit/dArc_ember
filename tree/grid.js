@@ -99,7 +99,9 @@ $(document).ready(function() {
     var namesToGetters = _.reduce(
       namesAndGetters,
       function(getters, nameAndGetter) {
-        getters[nameAndGetter.name] = nameAndGetter.getter;
+        if(nameAndGetter.name) {
+          getters[nameAndGetter.name] = nameAndGetter.getter;
+        }
         return getters;
       },
       {}
