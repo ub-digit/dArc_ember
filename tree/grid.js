@@ -134,7 +134,7 @@ $(document).ready(function() {
     loadComplete: function(data) {
       console.log(data);
       $('#posMultiCategory').find('option').remove();
-      $(data.all_categories).each(function(i,cat) {
+      $(data.meta.all_categories).each(function(i,cat) {
       console.log(cat);
         $("#posMultiCategory").append($("<option></option>").attr("value",cat).text(cat)); 
       });
