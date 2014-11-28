@@ -160,10 +160,10 @@ $(document).ready(function() {
           isDirty = false;
           return true;
        },
-    }).change(function(event) {
-      event.preventDefault();
-      event.stopPropagation();
     });
+  }).change(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
   });
 
 });
