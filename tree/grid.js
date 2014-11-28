@@ -161,6 +161,12 @@ $(document).ready(function() {
         click: function() {
            isDirty = true;
         },
+        checkAll: function() {
+           isDirty = true;
+        },
+        uncheckAll: function() {
+           isDirty = true;
+        },
         beforeclose: function() {
           if(isDirty) {
             reloadGrid();
