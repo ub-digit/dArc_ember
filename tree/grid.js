@@ -145,20 +145,20 @@ $(document).ready(function() {
   $('#diskImage').change(setHash);
   $(window).on('hashchange', selectDiskImage);
 
-  isDirty=false;
+  var isDirty = false;
   $("#posMultiCategory").multiselect({
       noneSelectedText: 'Select categories',
       selectedList: 4,
       click: function() {
-         isDirty=true;
+         isDirty = true;
       },
-      beforeclose: function(){
+      beforeclose: function() {
         if(isDirty) {
           reloadGrid();
         }
-        isDirty=false;
+        isDirty = false;
         return true;
-     }
+     },
   }).change(function(event) {
     event.preventDefault();
     event.stopPropagation();
