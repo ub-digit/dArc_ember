@@ -37,20 +37,25 @@
         <label for="extFilter"> Extension: </label> <input type="text" id="extFilter" name="extFilter" />
       </div>
       <div>
-        <label for="pathFilter"> Path: </label> <input type="text" id="pathFilter" name="pathFilter" />
+        <label for="pathFilter"> Path: </label>
+        <input type="text" id="pathFilter" name="pathFilter"
+        title="Only show items whose path contains this case sensitive string of alphanumerics, hyphens (-), underscores (_) and slashes (/). Regular expressions are supported." />
       </div>
       <div>
-        <select class="category-multiselect category-multiselect-dynamic" name="posCategory" multiple="multiple">
+        <select class="category-multiselect category-multiselect-dynamic" name="posCategory" multiple="multiple"
+          title="Only show items with at least one of these categories">
           Include categories
         </select>
       </div>
       <div>
-        <select class="category-multiselect category-multiselect-dynamic" name="negCategory" multiple="multiple">
+        <select class="category-multiselect category-multiselect-dynamic" name="negCategory" multiple="multiple"
+          title="Hide items with any of these categories">
           Exclude categories
         </select>
       </div>
       <div>
-        <select class="category-multiselect" id="negExtraCategory" name="negExtraCategory" multiple="multiple">
+        <select class="category-multiselect" id="negExtraCategory" name="negExtraCategory" multiple="multiple"
+          title="Other options">
           Options
         </select>
       </div>
