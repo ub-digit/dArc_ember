@@ -13,10 +13,9 @@ $(function() {
     },
     filter: function() {
       return {
-        showDeleted: $('#showDeleted').prop('checked'),
         extFilter: $('#extFilter').val(),
         per_page: -1,
-        negCategory: 'dirdots' + ',' + $('#negCategory').val(),
+        negCategory: 'sys/dirdots,' + ($('#showDeleted').prop('checked') ? 'sys/deleted' : ''),
       };
     },
   };
