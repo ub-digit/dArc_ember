@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  var gridContainer = $("#contentTable");
+  var $gridContainer = $("#contentTable");
 
-  var controlsForm = $('form.controls');
+  var $controlsForm = $('form.controls');
 
   function strStartsWith(haystack, needle) {
     return haystack.lastIndexOf(needle, 0) === 0;
@@ -44,9 +44,9 @@ $(document).ready(function() {
 
   function reloadGrid(url) {
     if(_(url).isString()) {
-      gridContainer.jqGrid('setGridParam', { url: url });
+      $gridContainer.jqGrid('setGridParam', { url: url });
     }
-    gridContainer.trigger('reloadGrid');
+    $gridContainer.trigger('reloadGrid');
   }
 
   function updateVolumeOptions() {
@@ -63,7 +63,7 @@ $(document).ready(function() {
           $el.append('<option value="' + volume.id + '">' + (index + 1) + '</option>');
         });
     }).fail(function(jqXHR, textStatus, errorThrown) {
-      gridContainer.jqGrid('clearGridData');
+      $gridContainer.jqGrid('clearGridData');
     });
   }
 
@@ -77,7 +77,7 @@ $(document).ready(function() {
   }
 
   function makeFilterGetters() {
-    var namesAndGetters = controlsForm.find('input, select').map(function(index, el) {
+    var namesAndGetters = $controlsForm.find('input, select').map(function(index, el) {
       var $el = $(el);
       return {
         name: $el.attr('name'),
@@ -117,7 +117,7 @@ $(document).ready(function() {
     $('#negExtraCategory').append($("<option></option>").attr("selected","selected").attr("value",value).text(text));
   });
 
-  gridContainer.jqGrid({
+  $gridContainer.jqGrid({
     url: getUrl(),
     datatype: "json",
     mtype: "GET",
@@ -172,7 +172,7 @@ $(document).ready(function() {
     },
   });
 
-  controlsForm.change(reloadGrid);
+  $controlsForm.change(reloadGrid);
 
   $('#diskImage').change(setHash);
   $(window).on('hashchange', selectDiskImage);
