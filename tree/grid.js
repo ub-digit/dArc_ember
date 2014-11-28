@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var $gridContainer = $("#contentTable");
 
-  var $controlsForm = $('form.controls');
+  var $controlsForm = $('#filters');
 
   function strStartsWith(haystack, needle) {
     return haystack.lastIndexOf(needle, 0) === 0;

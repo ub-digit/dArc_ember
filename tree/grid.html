@@ -21,12 +21,11 @@
   <script src="grid.js"></script>
 </head>
 <body>
-  <div class="controls">
-    <div>
-      <label for="diskImage"> Disk image: </label> <input type="text" id="diskImage" size="8" />
-    </div>
-
-    <form class="controls">
+  <form id="filters" class="controls-container">
+    <div class="controls">
+      <div>
+        <label for="diskImage"> Disk image: </label> <input type="text" id="diskImage" size="8" />
+      </div>
       <div>
         <label for="volumeFilter"> Volume: </label>
         <select id="volumeFilter" name="volume">
@@ -41,6 +40,8 @@
         <input type="text" id="pathFilter" name="pathFilter"
         title="Only show items whose path contains this case sensitive string of alphanumerics, hyphens (-), underscores (_) and slashes (/). Regular expressions are supported." />
       </div>
+    </div>
+    <div class="controls">
       <div>
         <select class="category-multiselect category-multiselect-dynamic" name="posCategory" multiple="multiple"
           title="Only show items with at least one of these categories">
@@ -59,8 +60,8 @@
           Options
         </select>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 
   <table id="contentTable" class="display" cellspacing="0" width="100%">
   </table>
