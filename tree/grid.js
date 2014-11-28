@@ -74,7 +74,7 @@ $(document).ready(function() {
       extFilter: function() { return $('#extFilter').val(); },
       pathFilter: function() { return $('#pathFilter').val(); },
       posCategory: function () { return $('#posCategory').val();},
-      negCategory: function () { return 'dirdots,dir,orphans,' + $('#negCategory').val();},
+      negCategory: function () { return 'sys/dirdots,sys/dir,sys/orphans,' + $('#negCategory').val();},
       showDeleted: function() { return $('#showDeleted').is(':checked'); },
       hideDirs: function() { return "false"; },
     },
@@ -85,6 +85,15 @@ $(document).ready(function() {
       records: "meta.pagination.total_items",
       repeatitems: true,
       id: "id",
+    },
+    loadComplete: function(data) {
+      console.log(data);
+      $('#posMultiCategory').find('option').remove();
+      $(data.all_categories).each(function(i,cat) {
+      console.log(cat);
+        $("#posMultiCategory").append($("<option></option>").attr("value",cat).text(cat)); 
+      });
+      $("#posMultiCategory").multiselect('refresh');
     },
   });
 
@@ -100,5 +109,25 @@ $(document).ready(function() {
   }
   $('#diskImage').change(setHash);
   $(window).on('hashchange', selectDiskImage);
+
+  isDirty=false;
+  $("#posMultiCategory").multiselect({
+      noneSelectedText: 'Select categories',
+      selectedList: 4,
+      click: function() {
+         isDirty=true;
+      },
+      beforeclose: function(){
+        if($("#posMultiCategory").val()) {
+          $("#posCategory").val($("#posMultiCategory").val().join(','))
+        }
+
+        doSubmit=false;
+        if(isDirty) doSubmit=true;
+        isDirty=false;
+        if(doSubmit) reloadGrid();
+        return true;
+     }
+   });
 
 });

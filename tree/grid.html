@@ -6,9 +6,11 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css" />
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="jquery.multiselect.css" />
 
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+  <script src="jquery.multiselect.min.js"></script>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
@@ -39,7 +41,7 @@
       <label for="pathFilter"> Path: </label> <input type="text" id="pathFilter">
     </li>
     <li>
-      <label for="posCategory"> +cat: </label> <input type="text" id="posCategory">
+      <label for="posMultiCategory"> +cat: </label> <select id="posMultiCategory" name="posMultiCategory" multiple="multiple"></select><input type="hidden" id="posCategory">
     </li>
     <li>
       <label for="negCategory"> -cat: </label> <input type="text" id="negCategory">
