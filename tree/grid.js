@@ -135,7 +135,7 @@ $(document).ready(function() {
     loadComplete: function(data) {
       $('.category-multiselect').each(function(index, el) {
         var $el = $(el);
-        categories = $(data.meta.all_categories);
+        var categories = $(data.meta.all_categories);
         $el.find('option').each(function(i,opt){
           if($.inArray($(opt).val(), categories) == -1) {
             $(opt).remove();
