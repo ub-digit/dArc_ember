@@ -11,6 +11,10 @@ $(document).ready(function() {
     return strStartsWith(category, 'sys/');
   }
 
+  function FORMAT_CATEGORIES(categoriesArray) {
+    return _(categoriesArray).reject(HIDE_CATEGORY_PREDICATE);
+  }
+
   var PARAM_TRANSFORMERS = {
     hideDirs: _.constant('false'),
     negCategory: function(original) { return 'sys/dirdots,sys/dir,sys/orphans,' + original; },
@@ -121,7 +125,7 @@ $(document).ready(function() {
       { name: "extension", width: 90, fixed: true },
       { name: "filesize", width: 90, fixed: true },
       { name: "mtime.value", width: 120, fixed: true, align: "right", formatter: 'date', formatoptions: { srcformat: 'Y-m-d\\TH:i:s', newformat: 'Y-m-d H:i:s' } },
-      { name: "categories", width: 90 },
+      { name: "categories", width: 90, formatter: FORMAT_CATEGORIES },
     ],
     pager: "#gridpager",
     rowNum: 30,
