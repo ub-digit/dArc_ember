@@ -8,6 +8,8 @@ $(document).ready(function() {
     negCategory: function(original) { return 'sys/dirdots,sys/dir,sys/orphans,' + original; },
   };
 
+  var disk_image;
+
   function getDiskImage() {
     return window.location.hash.substr(1);
   }
@@ -89,7 +91,6 @@ $(document).ready(function() {
     return namesToGetters;
   }
 
-  var disk_image;
   selectDiskImage();
 
   gridContainer.jqGrid({
