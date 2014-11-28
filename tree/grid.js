@@ -153,11 +153,10 @@ $(document).ready(function() {
          isDirty=true;
       },
       beforeclose: function(){
-
-        doSubmit=false;
-        if(isDirty) doSubmit=true;
+        if(isDirty) {
+          reloadGrid();
+        }
         isDirty=false;
-        if(doSubmit) reloadGrid();
         return true;
      }
   }).change(function(event) {
