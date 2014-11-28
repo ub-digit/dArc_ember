@@ -135,15 +135,16 @@ $(document).ready(function() {
     loadComplete: function(data) {
       $('.category-multiselect').each(function(index, el) {
         var $el = $(el);
-        var categories = $(data.meta.all_categories);
+        var categories = data.meta.all_categories;
+
         $el.find('option').each(function(i, opt) {
-          if($.inArray($(opt).val(), categories) == -1) {
+          if(!_(categories).contains($(opt).val())) {
             $(opt).remove();
           }
           // removes value from the categories array
           categories.splice($.inArray($(opt).val(), categories), 1);
         });
-        categories.each(function(i,cat) {
+        _(categories).each(function(cat) {
           $el.append($("<option></option>").attr("value",cat).text(cat));
         });
         $el.multiselect('refresh');
