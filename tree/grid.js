@@ -50,6 +50,8 @@ $(document).ready(function() {
         .each(function(volume, index) {
           $el.append('<option value="' + volume.id + '">' + (index + 1) + '</option>');
         });
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      gridContainer.jqGrid('clearGridData');
     });
   }
 
