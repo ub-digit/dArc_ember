@@ -137,7 +137,7 @@ $(document).ready(function() {
         var $el = $(el);
         categories = $(data.meta.all_categories);
         $el.find('option').each(function(i,opt){
-          if($.inArray($(opt).val(), $(categories)) == -1) {
+          if($.inArray($(opt).val(), categories) == -1) {
             $(opt).remove();
           }
           // removes value from the categories array
