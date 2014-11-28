@@ -135,7 +135,7 @@ $(document).ready(function() {
     loadComplete: function(data) {
       $('.category-multiselect').each(function(index, el) {
         var $el = $(el);
-        var categories = data.meta.all_categories;
+        var categories = _(data.meta.all_categories).sortBy(_.identity);
 
         $el.find('option').each(function(i, opt) {
           if(!_(categories).contains($(opt).val())) {
