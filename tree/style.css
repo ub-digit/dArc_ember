@@ -28,3 +28,7 @@
 .ui-multiselect {
     font-size: 0.9em;
 }
+
+.number {
+    text-align: right;
+}
