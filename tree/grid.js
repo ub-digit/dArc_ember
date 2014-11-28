@@ -132,10 +132,8 @@ $(document).ready(function() {
       id: "id",
     },
     loadComplete: function(data) {
-      console.log(data);
       $('#posMultiCategory').find('option').remove();
       _(data.meta.all_categories).each(function(cat) {
-      console.log(cat);
         $("#posMultiCategory").append($("<option></option>").attr("value",cat).text(cat)); 
       });
       $("#posMultiCategory").multiselect('refresh');
