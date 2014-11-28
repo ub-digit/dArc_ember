@@ -3,7 +3,7 @@ $(function() {
 
   var ROOT_ID = 2;
 
-  function getDiskImage() {
+  getDiskImage = function() {
     return window.location.hash.substr(1);
   }
 
