@@ -133,8 +133,9 @@ $(document).ready(function() {
       id: "id",
     },
     loadComplete: function(data) {
+      var $el = $('#posMultiCategory');
       categories = $(data.meta.all_categories);
-      $('#posMultiCategory').find('option').each(function(i,opt){
+      $el.find('option').each(function(i,opt){
         if($.inArray($(opt).val(), $(categories)) == -1) {
           $(opt).remove();
         }
@@ -142,9 +143,9 @@ $(document).ready(function() {
         categories.splice( $.inArray($(opt).val(), categories), 1 );
       });
       categories.each(function(i,cat) {
-        $("#posMultiCategory").append($("<option></option>").attr("value",cat).text(cat)); 
+        $el.append($("<option></option>").attr("value",cat).text(cat));
       });
-      $("#posMultiCategory").multiselect('refresh');
+      $el.multiselect('refresh');
     },
   });
 
