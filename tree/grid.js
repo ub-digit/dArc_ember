@@ -58,9 +58,8 @@ $(document).ready(function() {
   function getFilterParamFrom($el) {
     if($el.attr('type') === 'checkbox') {
       return $el.prop('checked');
-    } else {
-      return $el.val();
     }
+    return $el.val();
   }
 
   function makeFilterGetters() {
