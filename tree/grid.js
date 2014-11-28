@@ -76,6 +76,17 @@ $(document).ready(function() {
     return $el.val();
   }
 
+  /**
+   * Crawls through the $controlsForm element for form controls, and builds a
+   * hash mapping parameter names to getter functions. Parameter names are
+   * determined by the name attributes.
+   *
+   * The default getter is to invoke getFilterParamFrom function with the form
+   * control as the parameter. Each getter also hooks in the corresponding
+   * transformer function from the PARAM_TRANSFORMERS hash, if present. The
+   * transformer is passed the value of the form control and should return the
+   * transformed parameter value.
+   */
   function makeFilterGetters() {
     var namesAndGetters = $controlsForm.find('input, select').map(function(index, el) {
       var $el = $(el);
@@ -140,7 +151,7 @@ $(document).ready(function() {
     gridview: true,
     caption: "Disk contents",
     prmNames: { rows: "per_page", extension: "extFilter", sort: "sortField", order: "sortOrder" },
-    postData: makeFilterGetters(),
+    postData: makeFilterGetters(), // postData accepts a hash with param names => functions
     jsonReader : {
       root: "content_file_infos",
       page: "meta.pagination.page",
